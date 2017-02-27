@@ -1,0 +1,10 @@
+.\generated\ssi_handler_tivaware.o: SSI_handler_tivaware.c
+.\generated\ssi_handler_tivaware.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\generated\ssi_handler_tivaware.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\generated\ssi_handler_tivaware.o: SSI_handler_tivaware.h
+.\generated\ssi_handler_tivaware.o: ..\..\inc\tm4c123gh6pm.h
+.\generated\ssi_handler_tivaware.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib\gpio.h
+.\generated\ssi_handler_tivaware.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib\pin_map.h
+.\generated\ssi_handler_tivaware.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib\ssi.h
+.\generated\ssi_handler_tivaware.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib\sysctl.h
+.\generated\ssi_handler_tivaware.o: ..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h
