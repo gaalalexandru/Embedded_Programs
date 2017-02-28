@@ -1,0 +1,6 @@
+PLL.c -E -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc
+-IF:\1_Projects\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE
+-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_LM4F120H5QR
+-o .\generated\pll.i
