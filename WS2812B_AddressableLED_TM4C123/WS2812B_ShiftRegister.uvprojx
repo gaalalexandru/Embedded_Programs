@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>rvmdk PART_LM4F120H5QR</Define>
               <Undefine></Undefine>
-              <IncludePath>..;..\..\..;..\..\inc</IncludePath>
+              <IncludePath>..;..\..\..;..\..\inc;..\..\TivaWare_C_Series-2.1.1.71\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
