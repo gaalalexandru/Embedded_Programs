@@ -86,15 +86,15 @@ int main(void){
   SSI0_Init();
 	
 	//LedColor.Green = POWER; LedColor.Red = POWER; LedColor.Blue = POWER; //White Color
-	SET_OFF
+	SET_WHITE
 	Set_RGB(0,LedColor);
 	SET_RED
 	Set_RGB(1,LedColor);
-	SET_YELLOW
+	SET_WHITE
 	Set_RGB(2,LedColor);
-	SET_BLUE
+	SET_RED
 	Set_RGB(3,LedColor);
-	SET_OFF
+	SET_WHITE
 	Set_RGB(4,LedColor);	
 	
   while(1){
@@ -125,32 +125,31 @@ int main(void){
 				}
 			}
 		}
-		Delay(33333333);
+		Delay(5333333);
 		stat ^= 1;
 		if(stat) {
-			SET_OFF
+			SET_RED
+			Set_RGB(0,LedColor);
+			SET_WHITE
+			Set_RGB(1,LedColor);
+			SET_RED
+			Set_RGB(2,LedColor);
+			SET_WHITE
+			Set_RGB(3,LedColor);
+			SET_RED
+			Set_RGB(4,LedColor);
+		}
+		else {
+			SET_WHITE
 			Set_RGB(0,LedColor);
 			SET_RED
 			Set_RGB(1,LedColor);
 			SET_WHITE
 			Set_RGB(2,LedColor);
-			SET_GREEN
-			Set_RGB(3,LedColor);
-			SET_OFF
-			Set_RGB(4,LedColor);
-		}
-		else {
-			SET_OFF
-			Set_RGB(0,LedColor);
 			SET_RED
-			Set_RGB(1,LedColor);
-			SET_YELLOW
-			Set_RGB(2,LedColor);
-			SET_BLUE
 			Set_RGB(3,LedColor);
-			SET_OFF
+			SET_WHITE
 			Set_RGB(4,LedColor);	
 		}
-
   }
 }
