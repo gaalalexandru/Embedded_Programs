@@ -22,7 +22,7 @@ Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
 F:\1_Projects\Embedded_Programs\WS2812B_AddressableLED_TM4C123\WS2812B_ShiftRegister.uvprojx
-Project File Date:  03/01/2017
+Project File Date:  03/05/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'F:\0_Tools\Keil_v5\ARM\ARMCC\Bin'
@@ -35,17 +35,24 @@ creating preprocessor file for SSI_handler.c...
 compiling SSI_handler.c...
 creating preprocessor file for WS2812B_TestMain.c...
 compiling WS2812B_TestMain.c...
+WS2812B_TestMain.c(153): warning:  #177-D: variable "stat" was declared but never referenced
+        uint8_t stat = 0;
+WS2812B_TestMain.c(71): warning:  #177-D: function "Set_Off" was declared but never referenced
+  static void Set_Off(void){
+WS2812B_TestMain.c(94): warning:  #177-D: function "Set_Bargraph" was declared but never referenced
+  static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color) {
+WS2812B_TestMain.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=1832 RO-data=16 RW-data=0 ZI-data=1136  
+Program Size: Code=1736 RO-data=32 RW-data=4 ZI-data=1140  
 FromELF: creating hex file...
-".\Generated\WS2812B_Test.axf" - 0 Error(s), 0 Warning(s).
+".\Generated\WS2812B_Test.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   F:\1_Projects\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE
   F:\0_Tools\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

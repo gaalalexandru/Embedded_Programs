@@ -8380,13 +8380,9 @@ void PLL_Init(uint32_t freq);
 	}
 
 	
-
-
-
-
-
+#line 38 "WS2812B_TestMain.c"
 	
-#line 44 "WS2812B_TestMain.c"
+#line 45 "WS2812B_TestMain.c"
 
 	
 typedef struct stRGB {
@@ -8396,6 +8392,27 @@ typedef struct stRGB {
 } tstRGB;
 
 tstRGB data[(5)];
+ 
+static void Clear_Data(void);
+static void Set_Off(void);
+static uint8_t Set_RGB(uint8_t led_nr, tstRGB color);
+static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color);
+static void Send_RGB_Data(void);
+static void Set_Moving_Point(tstRGB color);
+ 
+static void Clear_Data(void){
+	uint8_t i = 0;
+	for (i=0;i<(5);i++){
+		data[i].Red = 0;
+		data[i].Green = 0;
+		data[i].Blue = 0;
+	}
+}
+
+static void Set_Off(void){
+	Clear_Data();
+	Send_RGB_Data();
+}
 
 static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 	if(led_nr < (5)) {
@@ -8408,65 +8425,48 @@ static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 		return 0; 
 	}
 }
+static void Set_Moving_Point(tstRGB color){
+	static uint8_t ix = 0;
+	Clear_Data();
+	Set_RGB(ix,color);
+	ix = ((ix + 1) % (5));
+}
 
-int main(void){
+static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color) {
+	uint8_t NrOfDataPoints = (2) * ((5) * percentage) / 100;  
+	uint8_t NrOfLEDsOn = NrOfDataPoints / (2);  
+	uint8_t i = 0;
 	tstRGB LedColor = {0x00,0x00,0x00};
-	uint8_t stat = 0;
+	if(percentage > 100) {
+		return 0;  
+	}
+	else {
+		
+		Clear_Data();
+		for (i=0;i<NrOfLEDsOn;i++) {
+			Set_RGB(i, color); 
+		}
+		if (NrOfDataPoints % (2) != 0) {
+			
+			if(color.Green > 1) { LedColor.Green = color.Green>>1; }
+			if(color.Red > 1) { LedColor.Red = color.Red>>1; }
+			if(color.Blue > 1) { LedColor.Blue = color.Blue>>1; }
+			Set_RGB(NrOfLEDsOn, LedColor); 
+		}
+		return 1;  
+	}
+	
+}
+
+static void Send_RGB_Data(void) {
 	uint8_t i = 0; 
 	uint8_t j = 0; 
-	
-  PLL_Init(4);
-  SSI0_Init();
-	
-
-
-
-
-
-
-
-
-
-
- 
-	
-  while(1){
-
-		
-
-		stat ^= 1;
-		if(stat) {
-			LedColor . Green = 0x00; LedColor . Red = (0x0F); LedColor . Blue = 0x00;
-			Set_RGB(0,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = 0x00; LedColor . Blue = (0x0F);
-			Set_RGB(1,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = (0x0F); LedColor . Blue = 0x00;
-			Set_RGB(2,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = 0x00; LedColor . Blue = (0x0F);
-			Set_RGB(3,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = (0x0F); LedColor . Blue = 0x00;
-			Set_RGB(4,LedColor);
-		}
-		else {
-			LedColor . Green = (0x0F); LedColor . Red = (0x0F); LedColor . Blue = (0x0F);
-			Set_RGB(0,LedColor);
-			LedColor . Green = (0x0F); LedColor . Red = 0x00; LedColor . Blue = 0x00;
-			Set_RGB(1,LedColor);
-			LedColor . Green = (0x0F); LedColor . Red = (0x0F); LedColor . Blue = (0x0F);
-			Set_RGB(2,LedColor);
-			LedColor . Green = (0x0F); LedColor . Red = 0x00; LedColor . Blue = 0x00;
-			Set_RGB(3,LedColor);
-			LedColor . Green = (0x0F); LedColor . Red = (0x0F); LedColor . Blue = (0x0F);
-			Set_RGB(4,LedColor);	
-		}
-  
-	
 	for (i=0;i<(5);i++){
 			for (j=0;j<8;j++){ 
 				if (((data[i].Green) & ((0x80)>>j)) != 0){
 					SSI0_DataOut((0xF8));
 				}
-				else{
+				else{ 
 					SSI0_DataOut((0xE0));
 				}
 			}
@@ -8487,6 +8487,52 @@ int main(void){
 				}
 			}
 		}
-	Delay(5333333);
-		}
+}
+
+int main(void){
+	tstRGB LedColor = {0x00,0x00,0x00};
+	uint8_t stat = 0;
+
+  PLL_Init(4);
+  SSI0_Init();
+	
+	LedColor . Green = (0x80); LedColor . Red = 0x00; LedColor . Blue = 0x00;
+  while(1){
+		Set_Moving_Point(LedColor);
+		
+		
+
+
+ 
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+		
+		Send_RGB_Data();
+	  Delay(1000000); 
+	}
 }

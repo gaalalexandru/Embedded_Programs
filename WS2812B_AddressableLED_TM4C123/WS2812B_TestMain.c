@@ -32,7 +32,7 @@
 #define NR_OF_LEDS (5)
 #define HighBit (0xF8)
 #define LowBit (0xE0)
-#define FullPower (0x0F)
+#define FullPower (0x80)
 #define BitMask (0x80)
 #define BargraphResolutionMultiplier (2)
 	
@@ -51,6 +51,27 @@ typedef struct stRGB {
 } tstRGB;
 
 tstRGB data[NR_OF_LEDS];
+/*---------Function prototype declarations---------*/
+static void Clear_Data(void);
+static void Set_Off(void);
+static uint8_t Set_RGB(uint8_t led_nr, tstRGB color);
+static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color);
+static void Send_RGB_Data(void);
+static void Set_Moving_Point(tstRGB color);
+/*---------Function prototype definitions---------*/
+static void Clear_Data(void){
+	uint8_t i = 0;
+	for (i=0;i<NR_OF_LEDS;i++){
+		data[i].Red = 0;
+		data[i].Green = 0;
+		data[i].Blue = 0;
+	}
+}
+
+static void Set_Off(void){
+	Clear_Data();
+	Send_RGB_Data();
+}
 
 static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 	if(led_nr < NR_OF_LEDS) {
@@ -62,6 +83,38 @@ static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 	else {
 		return 0; //Error
 	}
+}
+static void Set_Moving_Point(tstRGB color){
+	static uint8_t ix = 0;
+	Clear_Data();
+	Set_RGB(ix,color);
+	ix = ((ix + 1) % NR_OF_LEDS);
+}
+
+static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color) {
+	uint8_t NrOfDataPoints = BargraphResolutionMultiplier * (NR_OF_LEDS * percentage) / 100;  //Nr of data points (LEDs and half powered LEDs)
+	uint8_t NrOfLEDsOn = NrOfDataPoints / BargraphResolutionMultiplier;  //Number of LEDs at full power
+	uint8_t i = 0;
+	tstRGB LedColor = {0x00,0x00,0x00};
+	if(percentage > 100) {
+		return 0;  //Error
+	}
+	else {
+		//Set_Off();
+		Clear_Data();
+		for (i=0;i<NrOfLEDsOn;i++) {
+			Set_RGB(i, color); //Turn on LEDs at full Brightness
+		}
+		if (NrOfDataPoints % BargraphResolutionMultiplier != 0) {
+			//Turn on last LED at partial brightness
+			if(color.Green > 1) { LedColor.Green = color.Green>>1; }
+			if(color.Red > 1) { LedColor.Red = color.Red>>1; }
+			if(color.Blue > 1) { LedColor.Blue = color.Blue>>1; }
+			Set_RGB(NrOfLEDsOn, LedColor); //Turn on LEDs at full Brightness
+		}
+		return 1;  //Ok
+	}
+	
 }
 
 static void Send_RGB_Data(void) {
@@ -95,35 +148,23 @@ static void Send_RGB_Data(void) {
 		}
 }
 
-static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color) {
-	//NR_OF_LEDS
-	//FullPower
-	uint8_t NrOfDataPoints = BargraphResolutionMultiplier * (NR_OF_LEDS * percentage) / 100;  //Nr of data points (LEDs and half powered LEDs)
-	uint8_t NrOfLEDsOn = NrOfDataPoints / BargraphResolutionMultiplier;  //Number of LEDs at full power
-	uint8_t i = 0;
-	tstRGB LedColor = {0x00,0x00,0x00};
-	if(percentage > 100) {
-		return 0;  //Error
-	}
-	else {
-		for (i=0;i<NrOfLEDsOn;i++) {
-			SET_RED
-			Set_RGB(i, color);
-		}
-		if (BargraphResolutionMultiplier%
-		return 1;  //Ok
-	}
-	
-}
-
 int main(void){
 	tstRGB LedColor = {0x00,0x00,0x00};
 	uint8_t stat = 0;
 
   PLL_Init(Bus80MHz);
   SSI0_Init();
-
+	//SET_RED
+	SET_GREEN
   while(1){
+		Set_Moving_Point(LedColor);
+		
+		/*
+		Set_Bargraph(10*stat,LedColor);
+		stat = ((stat + 1) % 10);
+		*/
+		
+		/*
 		stat ^= 1;
 		if(stat) {
 			SET_RED
@@ -148,7 +189,9 @@ int main(void){
 			Set_RGB(3,LedColor);
 			SET_WHITE
 			Set_RGB(4,LedColor);	
-		}
-		Delay(5333333); //Replace with actual timer
+		}*/
+		
+		Send_RGB_Data();
+	  Delay(1000000); //AleGaa Todo: Replace with actual timer
 	}
 }

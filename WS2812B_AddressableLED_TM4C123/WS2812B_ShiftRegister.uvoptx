@@ -117,8 +117,8 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGUARM</Key>
-          <Name>EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEC`Ä
-f-=r</Name>
+          <Name>ÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌÈ`\
+hŽÆ‰œò;</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -147,40 +147,40 @@ f-=r</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
-      <WatchWindow2>
+      <WatchWindow1>
         <Ww>
           <count>0</count>
-          <WinNumber>2</WinNumber>
+          <WinNumber>1</WinNumber>
           <ItemText>data[0]</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
-          <WinNumber>2</WinNumber>
+          <WinNumber>1</WinNumber>
           <ItemText>data[1]</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
-          <WinNumber>2</WinNumber>
+          <WinNumber>1</WinNumber>
           <ItemText>data[2]</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
-          <WinNumber>2</WinNumber>
+          <WinNumber>1</WinNumber>
           <ItemText>data[3]</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
-          <WinNumber>2</WinNumber>
+          <WinNumber>1</WinNumber>
           <ItemText>data[4]</ItemText>
         </Ww>
-      </WatchWindow2>
+      </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
         <periodic>0</periodic>
-        <aLwin>1</aLwin>
+        <aLwin>0</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
@@ -246,7 +246,7 @@ f-=r</Name>
       <GroupNumber>1</GroupNumber>
       <FileNumber>3</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\SSI_handler.c</PathWithFileName>
