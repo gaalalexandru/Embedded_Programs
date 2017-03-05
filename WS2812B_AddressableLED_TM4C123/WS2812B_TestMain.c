@@ -31,36 +31,26 @@
 	
 #define NR_OF_LEDS (5)
 #define HighBit (0xF8)
-#define LowBit	(0xE0)
+#define LowBit (0xE0)
+#define FullPower (0x0F)
+#define BitMask (0x80)
+#define BargraphResolutionMultiplier (2)
 	
-/*#define GREEN		{.Red = 0x00, .Green = POWER, .Blue = 0x00}
-#define RED			{.Red = POWER, .Green = 0x00, .Blue = 0x00};
-#define BLUE		{0x00,0x00,POWER}
-#define WHITE		{POWER,POWER,POWER}
-#define YELLOW	{POWER,POWER,0x00}
-#define LED_OFF {0x00,0x00,0x00}*/
-
-#define POWER 0x01
-	
-#define SET_RED		LedColor.Green = 0x00; LedColor.Red = POWER; LedColor.Blue = 0x00; //Red Color
-#define SET_GREEN	LedColor.Green = POWER; LedColor.Red = 0x00; LedColor.Blue = 0x00; //Green Color
-#define SET_BLUE	LedColor.Green = 0x00; LedColor.Red = 0x00; LedColor.Blue = POWER; //Blue Color
+#define SET_RED		LedColor.Green = 0x00; LedColor.Red = FullPower; LedColor.Blue = 0x00; //Red Color
+#define SET_GREEN	LedColor.Green = FullPower; LedColor.Red = 0x00; LedColor.Blue = 0x00; //Green Color
+#define SET_BLUE	LedColor.Green = 0x00; LedColor.Red = 0x00; LedColor.Blue = FullPower; //Blue Color
 #define SET_OFF		LedColor.Green = 0x00; LedColor.Red = 0x00; LedColor.Blue = 0x00; //Off
-#define SET_WHITE	LedColor.Green = POWER; LedColor.Red = POWER; LedColor.Blue = POWER; //White Color
-#define SET_YELLOW LedColor.Green = POWER; LedColor.Red = POWER; LedColor.Blue = 0x00; //Yellow Color
+#define SET_WHITE	LedColor.Green = FullPower; LedColor.Red = FullPower; LedColor.Blue = FullPower; //White Color
+#define SET_YELLOW LedColor.Green = FullPower; LedColor.Red = FullPower; LedColor.Blue = 0x00; //Yellow Color
 
 	
-struct stRGB {
+typedef struct stRGB {
 	uint8_t Red;
 	uint8_t Green;
 	uint8_t Blue;
-};
-
-typedef struct stRGB tstRGB;
+} tstRGB;
 
 tstRGB data[NR_OF_LEDS];
-
-//uint8_t Set_RGB(uint8 led_nr, tstRGB color);
 
 static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 	if(led_nr < NR_OF_LEDS) {
@@ -74,42 +64,20 @@ static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 	}
 }
 
-int main(void){
-	uint8_t mask = POWER;
-	tstRGB LedColor = {0x00,0x00,0x00};
-	uint8_t stat = 0;
-		//Green Red Blue 
-	//uint8_t	data[15] = {0xE1 ,0xa5 ,0x0F,0xB9 ,0x0F ,0xE0,0x00 ,0x11 ,0x00,POWER ,0x0F ,0xA1,0x20 ,POWER ,0x07};
-	uint8_t i = 0;
-	uint8_t j = 0;
-  PLL_Init(Bus80MHz);
-  SSI0_Init();
-	
-	//LedColor.Green = POWER; LedColor.Red = POWER; LedColor.Blue = POWER; //White Color
-	SET_WHITE
-	Set_RGB(0,LedColor);
-	SET_RED
-	Set_RGB(1,LedColor);
-	SET_WHITE
-	Set_RGB(2,LedColor);
-	SET_RED
-	Set_RGB(3,LedColor);
-	SET_WHITE
-	Set_RGB(4,LedColor);	
-	
-  while(1){
-
-		for (i=0;i<NR_OF_LEDS;i++){
+static void Send_RGB_Data(void) {
+	uint8_t i = 0; //index of LEDs on PCB
+	uint8_t j = 0; //index of bits in HighBit and LowBit frames
+	for (i=0;i<NR_OF_LEDS;i++){
 			for (j=0;j<8;j++){ //Process Green
-				if (((data[i].Green) & (mask>>j)) != 0){
+				if (((data[i].Green) & (BitMask>>j)) != 0){
 					SSI0_DataOut(HighBit);
 				}
-				else{
+				else{ 
 					SSI0_DataOut(LowBit);
 				}
 			}
 			for (j=0;j<8;j++){ //Process Red
-				if (((data[i].Red) & (mask>>j)) != 0){
+				if (((data[i].Red) & (BitMask>>j)) != 0){
 					SSI0_DataOut(HighBit);
 				}
 				else{
@@ -117,7 +85,7 @@ int main(void){
 				}
 			}
 			for (j=0;j<8;j++){ //Process Blue
-				if (((data[i].Blue) & (mask>>j)) != 0){
+				if (((data[i].Blue) & (BitMask>>j)) != 0){
 					SSI0_DataOut(HighBit);
 				}
 				else{
@@ -125,16 +93,46 @@ int main(void){
 				}
 			}
 		}
-		Delay(5333333);
+}
+
+static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color) {
+	//NR_OF_LEDS
+	//FullPower
+	uint8_t NrOfDataPoints = BargraphResolutionMultiplier * (NR_OF_LEDS * percentage) / 100;  //Nr of data points (LEDs and half powered LEDs)
+	uint8_t NrOfLEDsOn = NrOfDataPoints / BargraphResolutionMultiplier;  //Number of LEDs at full power
+	uint8_t i = 0;
+	tstRGB LedColor = {0x00,0x00,0x00};
+	if(percentage > 100) {
+		return 0;  //Error
+	}
+	else {
+		for (i=0;i<NrOfLEDsOn;i++) {
+			SET_RED
+			Set_RGB(i, color);
+		}
+		if (BargraphResolutionMultiplier%
+		return 1;  //Ok
+	}
+	
+}
+
+int main(void){
+	tstRGB LedColor = {0x00,0x00,0x00};
+	uint8_t stat = 0;
+
+  PLL_Init(Bus80MHz);
+  SSI0_Init();
+
+  while(1){
 		stat ^= 1;
 		if(stat) {
 			SET_RED
 			Set_RGB(0,LedColor);
-			SET_WHITE
+			SET_BLUE
 			Set_RGB(1,LedColor);
 			SET_RED
 			Set_RGB(2,LedColor);
-			SET_WHITE
+			SET_BLUE
 			Set_RGB(3,LedColor);
 			SET_RED
 			Set_RGB(4,LedColor);
@@ -142,14 +140,15 @@ int main(void){
 		else {
 			SET_WHITE
 			Set_RGB(0,LedColor);
-			SET_RED
+			SET_GREEN
 			Set_RGB(1,LedColor);
 			SET_WHITE
 			Set_RGB(2,LedColor);
-			SET_RED
+			SET_GREEN
 			Set_RGB(3,LedColor);
 			SET_WHITE
 			Set_RGB(4,LedColor);	
 		}
-  }
+		Delay(5333333); //Replace with actual timer
+	}
 }

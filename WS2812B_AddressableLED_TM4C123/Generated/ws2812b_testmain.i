@@ -8383,30 +8383,19 @@ void PLL_Init(uint32_t freq);
 
 
 
-	
-
-
-
-
-
- 
 
 
 	
-#line 51 "WS2812B_TestMain.c"
+#line 44 "WS2812B_TestMain.c"
 
 	
-struct stRGB {
+typedef struct stRGB {
 	uint8_t Red;
 	uint8_t Green;
 	uint8_t Blue;
-};
-
-typedef struct stRGB tstRGB;
+} tstRGB;
 
 tstRGB data[(5)];
-
-
 
 static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 	if(led_nr < (5)) {
@@ -8421,82 +8410,83 @@ static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 }
 
 int main(void){
-	uint8_t mask = 0x01;
 	tstRGB LedColor = {0x00,0x00,0x00};
 	uint8_t stat = 0;
-		
+	uint8_t i = 0; 
+	uint8_t j = 0; 
 	
-	uint8_t i = 0;
-	uint8_t j = 0;
   PLL_Init(4);
   SSI0_Init();
 	
-	
-	LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
-	Set_RGB(0,LedColor);
-	LedColor . Green = 0x00; LedColor . Red = 0x01; LedColor . Blue = 0x00;
-	Set_RGB(1,LedColor);
-	LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
-	Set_RGB(2,LedColor);
-	LedColor . Green = 0x00; LedColor . Red = 0x01; LedColor . Blue = 0x00;
-	Set_RGB(3,LedColor);
-	LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
-	Set_RGB(4,LedColor);	
+
+
+
+
+
+
+
+
+
+
+ 
 	
   while(1){
 
-		for (i=0;i<(5);i++){
-			for (j=0;j<8;j++){ 
-				if (((data[i].Green) & (mask>>j)) != 0){
-					SSI0_DataOut((0xF8));
-				}
-				else{
-					SSI0_DataOut((0xE0));
-				}
-			}
-			for (j=0;j<8;j++){ 
-				if (((data[i].Red) & (mask>>j)) != 0){
-					SSI0_DataOut((0xF8));
-				}
-				else{
-					SSI0_DataOut((0xE0));
-				}
-			}
-			for (j=0;j<8;j++){ 
-				if (((data[i].Blue) & (mask>>j)) != 0){
-					SSI0_DataOut((0xF8));
-				}
-				else{
-					SSI0_DataOut((0xE0));
-				}
-			}
-		}
-		Delay(5333333);
+		
+
 		stat ^= 1;
 		if(stat) {
-			LedColor . Green = 0x00; LedColor . Red = 0x01; LedColor . Blue = 0x00;
+			LedColor . Green = 0x00; LedColor . Red = (0x0F); LedColor . Blue = 0x00;
 			Set_RGB(0,LedColor);
-			LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
+			LedColor . Green = 0x00; LedColor . Red = 0x00; LedColor . Blue = (0x0F);
 			Set_RGB(1,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = 0x01; LedColor . Blue = 0x00;
+			LedColor . Green = 0x00; LedColor . Red = (0x0F); LedColor . Blue = 0x00;
 			Set_RGB(2,LedColor);
-			LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
+			LedColor . Green = 0x00; LedColor . Red = 0x00; LedColor . Blue = (0x0F);
 			Set_RGB(3,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = 0x01; LedColor . Blue = 0x00;
+			LedColor . Green = 0x00; LedColor . Red = (0x0F); LedColor . Blue = 0x00;
 			Set_RGB(4,LedColor);
 		}
 		else {
-			LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
+			LedColor . Green = (0x0F); LedColor . Red = (0x0F); LedColor . Blue = (0x0F);
 			Set_RGB(0,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = 0x01; LedColor . Blue = 0x00;
+			LedColor . Green = (0x0F); LedColor . Red = 0x00; LedColor . Blue = 0x00;
 			Set_RGB(1,LedColor);
-			LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
+			LedColor . Green = (0x0F); LedColor . Red = (0x0F); LedColor . Blue = (0x0F);
 			Set_RGB(2,LedColor);
-			LedColor . Green = 0x00; LedColor . Red = 0x01; LedColor . Blue = 0x00;
+			LedColor . Green = (0x0F); LedColor . Red = 0x00; LedColor . Blue = 0x00;
 			Set_RGB(3,LedColor);
-			LedColor . Green = 0x01; LedColor . Red = 0x01; LedColor . Blue = 0x01;
+			LedColor . Green = (0x0F); LedColor . Red = (0x0F); LedColor . Blue = (0x0F);
 			Set_RGB(4,LedColor);	
 		}
-
-  }
+  
+	
+	for (i=0;i<(5);i++){
+			for (j=0;j<8;j++){ 
+				if (((data[i].Green) & ((0x80)>>j)) != 0){
+					SSI0_DataOut((0xF8));
+				}
+				else{
+					SSI0_DataOut((0xE0));
+				}
+			}
+			for (j=0;j<8;j++){ 
+				if (((data[i].Red) & ((0x80)>>j)) != 0){
+					SSI0_DataOut((0xF8));
+				}
+				else{
+					SSI0_DataOut((0xE0));
+				}
+			}
+			for (j=0;j<8;j++){ 
+				if (((data[i].Blue) & ((0x80)>>j)) != 0){
+					SSI0_DataOut((0xF8));
+				}
+				else{
+					SSI0_DataOut((0xE0));
+				}
+			}
+		}
+	Delay(5333333);
+		}
 }
