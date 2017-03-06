@@ -10,5 +10,7 @@ SET CPU_CLOCK=0x007A1200
 "F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\generated\ssi_handler.__i"
 "F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "generated\ws2812b_testmain._ip"
 "F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\generated\ws2812b_testmain.__i"
+"F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via "generated\uart_handler._ip"
+"F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\ArmCC" --Via ".\generated\uart_handler.__i"
 "F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\ArmLink" --Via ".\Generated\WS2812B_Test.lnp"
 "F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\fromelf.exe" ".\Generated\WS2812B_Test.axf" --i32combined --output ".\Generated\WS2812B_Test.hex"

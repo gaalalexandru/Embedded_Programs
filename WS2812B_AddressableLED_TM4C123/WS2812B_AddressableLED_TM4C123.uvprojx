@@ -333,7 +333,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>rvmdk PART_LM4F120H5QR</Define>
+              <Define>rvmdk PART_TM4C123GH6PM</Define>
               <Undefine></Undefine>
               <IncludePath>..;..\..\..;..\..\inc;..\..\TivaWare_C_Series-2.1.1.71\inc</IncludePath>
             </VariousControls>
@@ -398,6 +398,11 @@
               <FileName>WS2812B_TestMain.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\WS2812B_TestMain.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART_handler.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\UART_handler.c</FilePath>
             </File>
           </Files>
         </Group>

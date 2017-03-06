@@ -7,6 +7,7 @@
 
 #include <stdint.h>
 #include "SSI_handler.h"
+#include "UART_handler.h"
 #include "PLL.h"
 
 // delay function for testing from sysctl.c
@@ -153,12 +154,16 @@ int main(void){
 	uint8_t stat = 0;
 
   PLL_Init(Bus80MHz);
+  UART_Init();              // initialize UART
   SSI0_Init();
 	//SET_RED
 	SET_GREEN
   while(1){
+		UART_OutChar('1');
+		UART_OutUDec(121);
+		UART_OutString("asda33rsdf3");
 		Set_Moving_Point(LedColor);
-		
+
 		/*
 		Set_Bargraph(10*stat,LedColor);
 		stat = ((stat + 1) % 10);
