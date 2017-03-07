@@ -31,12 +31,15 @@
 #endif
 	
 #define NR_OF_LEDS (5)
-#define HighBit (0xF8)
-#define LowBit (0xE0)
+#define HighBit  /*(0xFC)*/  (0xF8)
+#define LowBit /*(0xC0)*/  (0xE0)
 #define FullPower (0x80)
 #define BitMask (0x80)
 #define BargraphResolutionMultiplier (2)
 	
+
+
+
 #define SET_RED		LedColor.Green = 0x00; LedColor.Red = FullPower; LedColor.Blue = 0x00; //Red Color
 #define SET_GREEN	LedColor.Green = FullPower; LedColor.Red = 0x00; LedColor.Blue = 0x00; //Green Color
 #define SET_BLUE	LedColor.Green = 0x00; LedColor.Red = 0x00; LedColor.Blue = FullPower; //Blue Color
@@ -87,9 +90,15 @@ static uint8_t Set_RGB(uint8_t led_nr, tstRGB color) {
 }
 static void Set_Moving_Point(tstRGB color){
 	static uint8_t ix = 0;
-	Clear_Data();
-	Set_RGB(ix,color);
-	ix = ((ix + 1) % NR_OF_LEDS);
+	tstRGB LedColor_Off = {0x00,0x00,0x00};
+	if(ix != 0) { //Previous LED was any except the 1st
+		Set_RGB((ix-1),LedColor_Off);	 //Clear previous LED
+	}
+	else {  //Previous LED was the first
+		Set_RGB((NR_OF_LEDS-1),LedColor_Off);	 //Clear previous LED
+	}
+	Set_RGB(ix,color);  //Set current LED
+	ix = ((ix + 1) % NR_OF_LEDS);  //increment and reset current LED index
 }
 
 static uint8_t Set_Bargraph(uint8_t percentage, tstRGB color) {
@@ -159,9 +168,9 @@ int main(void){
 	//SET_RED
 	SET_GREEN
   while(1){
-		UART_OutChar('1');
-		UART_OutUDec(121);
-		UART_OutString("asda33rsdf3");
+		//UART_OutChar('1');
+		//UART_OutUDec(121);
+		//UART_OutString("asda33rsdf3");
 		Set_Moving_Point(LedColor);
 
 		/*
@@ -197,6 +206,6 @@ int main(void){
 		}*/
 		
 		Send_RGB_Data();
-	  Delay(1000000); //AleGaa Todo: Replace with actual timer
+	  Delay(5000000); //AleGaa Todo: Replace with actual timer
 	}
 }
