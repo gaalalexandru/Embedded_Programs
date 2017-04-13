@@ -31,12 +31,16 @@
 
 
 int main(void){
-	uint8_t number = 0;
-  PLL_Init(Bus80MHz);                   // set system clock to 50 MHz
+	uint8_t number = 0x01;
+  PLL_Init(Bus80MHz);  // set system clock
   SSI0_Init();
   while(1){
+		number = 0xff;
 		SSI0_DataOut(number);
-		number = ((number + 1) % 8);
-		Delay(8333333);                     // delay ~0.5 sec at 50 MHz
+		//number = ((number + 1) % 8);
+		//number = number << 1;
+		//if(!number) number = 1;
+		//Delay(80000000);  // delay ~0.5 sec at 50 MHz
+		
   }
 }

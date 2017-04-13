@@ -1,0 +1,15 @@
+Dependencies for Project 'HD44780_LCDDriver', Target 'HD44780_LCDDriver': (DO NOT MODIFY !)
+F (.\startup.s)(0x58EB8CED)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\HD44780_LCDDriver_TM4C123\RTE\_HD44780_LCDDriver-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 522" --pd "TM4C123GH6PM SETA 1"--list .\generated\startup.lst --xref -o .\output\startup.o --depend .\output\startup.d)
+F (.\PLL.c)(0x58EC6593)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\HD44780_LCDDriver_TM4C123\RTE\_HD44780_LCDDriver-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\output\pll.o --omf_browse .\output\pll.crf --depend .\output\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (PLL.h)(0x58EB8CED)
+I (..\../inc/tm4c123gh6pm.h)(0x5648E7CE)
+F (.\SSI_handler.c)(0x58EC6596)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\HD44780_LCDDriver_TM4C123\RTE\_HD44780_LCDDriver-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\output\ssi_handler.o --omf_browse .\output\ssi_handler.crf --depend .\output\ssi_handler.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (SSI_handler.h)(0x58EB8CED)
+I (..\..\inc\tm4c123gh6pm.h)(0x5648E7CE)
+F (.\SN74HC164_TestMain.c)(0x58EC796A)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\HD44780_LCDDriver_TM4C123\RTE\_HD44780_LCDDriver-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\output\sn74hc164_testmain.o --omf_browse .\output\sn74hc164_testmain.crf --depend .\output\sn74hc164_testmain.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (SSI_handler.h)(0x58EB8CED)
+I (..\..\inc\tm4c123gh6pm.h)(0x5648E7CE)
+I (PLL.h)(0x58EB8CED)

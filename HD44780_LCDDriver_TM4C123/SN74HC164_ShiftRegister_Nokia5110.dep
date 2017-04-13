@@ -1,15 +1,0 @@
-Dependencies for Project 'SN74HC164_ShiftRegister', Target 'Nokia5110': (DO NOT MODIFY !)
-F (.\startup.s)(0x5197C8FA)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IF:\1_Projects\Embedded_Programs\SN74HC164_ShiftRegister_TM4C123\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 521" --pd "LM4F120 SETA 1"-o .\startup.o --depend .\startup.d)
-F (.\PLL.c)(0x55453062)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IF:\1_Projects\Embedded_Programs\SN74HC164_ShiftRegister_TM4C123\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (PLL.h)(0x5545BFC0)
-I (..\../inc/tm4c123gh6pm.h)(0x5648E7CE)
-F (.\SSI_handler.c)(0x58B1D365)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IF:\1_Projects\Embedded_Programs\SN74HC164_ShiftRegister_TM4C123\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\ssi_handler.o --omf_browse .\ssi_handler.crf --depend .\ssi_handler.d)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (SSI_handler.h)(0x58B1D168)
-I (..\..\inc\tm4c123gh6pm.h)(0x5648E7CE)
-F (.\SN74HC164_TestMain.c)(0x58B1E790)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IF:\1_Projects\Embedded_Programs\SN74HC164_ShiftRegister_TM4C123\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\sn74hc164_testmain.o --omf_browse .\sn74hc164_testmain.crf --depend .\sn74hc164_testmain.d)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (SSI_handler.h)(0x58B1D168)
-I (..\..\inc\tm4c123gh6pm.h)(0x5648E7CE)
-I (PLL.h)(0x5545BFC0)
