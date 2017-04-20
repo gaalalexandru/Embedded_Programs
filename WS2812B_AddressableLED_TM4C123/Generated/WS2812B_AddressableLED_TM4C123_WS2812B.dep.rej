@@ -1,0 +1,141 @@
+diff a/WS2812B_AddressableLED_TM4C123/Generated/WS2812B_AddressableLED_TM4C123_WS2812B.dep b/WS2812B_AddressableLED_TM4C123/Generated/WS2812B_AddressableLED_TM4C123_WS2812B.dep	(rejected hunks)
+@@ -1,120 +1,70 @@
+ Dependencies for Project 'WS2812B_AddressableLED_TM4C123', Target 'WS2812B': (DO NOT MODIFY !)
+-F (.\startup.s)(0x58B6626E)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork 
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+--pd "__UVISION_VERSION SETA 521" --pd "LM4F120 SETA 1"
+
+--list .\generated\startup.lst --xref -o .\generated\startup.o --depend .\generated\startup.d)
+-F (.\PLL.c)(0x58B6626E)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\pll.o --omf_browse .\generated\pll.crf --depend .\generated\pll.d)
+-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
+-I (PLL.h)(0x58B6626E)
+-I (..\..\TivaWare_C_Series-2.1.1.71\inc\../inc/tm4c123gh6pm.h)(0x5648E7CE)
+-F (.\SSI_handler.c)(0x58BCFBAF)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\ssi_handler.o --omf_browse .\generated\ssi_handler.crf --depend .\generated\ssi_handler.d)
+-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
+-I (SSI_handler.h)(0x58B6626E)
+-I (..\..\TivaWare_C_Series-2.1.1.71\inc\tm4c123gh6pm.h)(0x5648E7CE)
+-F (.\WS2812B_TestMain.c)(0x58BEBC43)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\ws2812b_testmain.o --omf_browse .\generated\ws2812b_testmain.crf --depend .\generated\ws2812b_testmain.d)
+-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
+-I (SSI_handler.h)(0x58B6626E)
+-I (..\..\TivaWare_C_Series-2.1.1.71\inc\tm4c123gh6pm.h)(0x5648E7CE)
+-I (UART_handler.h)(0x58BEB520)
+-I (PLL.h)(0x58B6626E)
+-F (.\UART_handler.c)(0x58BEB520)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc -I ..\..\TivaWare_C_Series-2.1.1.71\inc
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="521" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\uart_handler.o --omf_browse .\generated\uart_handler.crf --depend .\generated\uart_handler.d)
+-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E8476)
+-I (UART_handler.h)(0x58BEB520)
+-I (..\..\TivaWare_C_Series-2.1.1.71\inc\../inc/tm4c123gh6pm.h)(0x5648E7CE)
++F (.\startup.s)(0x58EB8CED)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork 
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE\_WS2812B
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+--pd "__UVISION_VERSION SETA 522" --pd "LM4F120 SETA 1"
+
+--list .\generated\startup.lst --xref -o .\generated\startup.o --depend .\generated\startup.d)
++F (.\PLL.c)(0x58EF0E4F)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ..\WS2812B_AddressableLED_TM4C123
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE\_WS2812B
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="522" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\pll.o --omf_browse .\generated\pll.crf --depend .\generated\pll.d)
++I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
++I (PLL.h)(0x58EB8CED)
++I (tm4c123gh6pm.h)(0x5648E7CE)
++F (.\SSI_handler.c)(0x58EB8CED)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ..\WS2812B_AddressableLED_TM4C123
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE\_WS2812B
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="522" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\ssi_handler.o --omf_browse .\generated\ssi_handler.crf --depend .\generated\ssi_handler.d)
++I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
++I (SSI_handler.h)(0x58EB8CED)
++I (tm4c123gh6pm.h)(0x5648E7CE)
++F (.\WS2812B_TestMain.c)(0x58EF2BC0)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ..\WS2812B_AddressableLED_TM4C123
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE\_WS2812B
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="522" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\ws2812b_testmain.o --omf_browse .\generated\ws2812b_testmain.crf --depend .\generated\ws2812b_testmain.d)
++I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
++I (SSI_handler.h)(0x58EB8CED)
++I (tm4c123gh6pm.h)(0x5648E7CE)
++I (UART_handler.h)(0x58EB8CED)
++I (PLL.h)(0x58EB8CED)
++F (.\UART_handler.c)(0x58EF0E8E)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I ..\WS2812B_AddressableLED_TM4C123
+
+-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\WS2812B_AddressableLED_TM4C123\RTE\_WS2812B
+
+-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include
+
+-IC:\Keil_v5\ARM\CMSIS\Include
+
+-D__UVISION_VERSION="522" -DLM4F120 -Drvmdk -DPART_TM4C123GH6PM
+
+-o .\generated\uart_handler.o --omf_browse .\generated\uart_handler.crf --depend .\generated\uart_handler.d)
++I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
++I (UART_handler.h)(0x58EB8CED)
++I (tm4c123gh6pm.h)(0x5648E7CE)

@@ -1,0 +1,15 @@
+Dependencies for Project 'SN74HC595N_ShiftRegister', Target 'ShiftRegisterTest': (DO NOT MODIFY !)
+F (.\startup.s)(0x58EB8CED)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\SN74HC595N_ShiftRegister_TM4C123\RTE\_ShiftRegisterTest-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 522" --pd "LM4F120 SETA 1"-o .\generated\startup.o --depend .\generated\startup.d)
+F (.\PLL.c)(0x58EB8CED)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\SN74HC595N_ShiftRegister_TM4C123\RTE\_ShiftRegisterTest-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\generated\pll.o --omf_browse .\generated\pll.crf --depend .\generated\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (PLL.h)(0x58EB8CED)
+I (..\../inc/tm4c123gh6pm.h)(0x5648E7CE)
+F (.\SSI_handler.c)(0x58EB8CED)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\SN74HC595N_ShiftRegister_TM4C123\RTE\_ShiftRegisterTest-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\generated\ssi_handler.o --omf_browse .\generated\ssi_handler.crf --depend .\generated\ssi_handler.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (SSI_handler.h)(0x58EB8CED)
+I (..\tm4c123gh6pm.h)(0x5648E7CE)
+F (.\SN74HC595N_TestMain.c)(0x58F5A450)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. -I ..\..\inc-IC:\Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\SN74HC595N_ShiftRegister_TM4C123\RTE\_ShiftRegisterTest-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\generated\sn74hc595n_testmain.o --omf_browse .\generated\sn74hc595n_testmain.crf --depend .\generated\sn74hc595n_testmain.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
+I (SSI_handler.h)(0x58EB8CED)
+I (..\tm4c123gh6pm.h)(0x5648E7CE)
+I (PLL.h)(0x58EB8CED)
