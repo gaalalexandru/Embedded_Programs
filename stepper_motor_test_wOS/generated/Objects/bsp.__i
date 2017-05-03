@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\core -I .\3rd_party
+-IF:\1_Projects\ssOS\RTE
+-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include
+-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
+-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM
+-o .\generated\objects\bsp.o --omf_browse .\generated\objects\bsp.crf --depend .\generated\objects\bsp.d "3rd_party\BSP.c"

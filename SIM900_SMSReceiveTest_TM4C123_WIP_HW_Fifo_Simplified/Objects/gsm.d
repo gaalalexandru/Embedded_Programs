@@ -1,0 +1,14 @@
+.\objects\gsm.o: GSM.c
+.\objects\gsm.o: SecSys_Config.h
+.\objects\gsm.o: GSM.h
+.\objects\gsm.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\gsm.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gsm.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h
+.\objects\gsm.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h
+.\objects\gsm.o: ..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h
+.\objects\gsm.o: pc_display.h
+.\objects\gsm.o: uart_handler.h
+.\objects\gsm.o: ..\..\TivaWare_C_Series-2.1.1.71\utils\uartstdio.h
+.\objects\gsm.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\gsm.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\gsm.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

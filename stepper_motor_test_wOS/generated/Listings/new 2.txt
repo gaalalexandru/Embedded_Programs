@@ -1,0 +1,43 @@
+ssOS configs:
+
+Edge interrupt level setting:
+uint8_t OS_EdgeTrigger_Init(uint8_t port, uint8_t pin, uint8_t priority, uint8_t type)
+
+port:
+	#define PortA	(0);
+	#define	PortB	(1);
+	#define PortC	(2);
+	#define	PortD	(3);
+	#define PortE	(4);
+	#define	PortF	(5);
+
+pin:
+	#define	Pin0	(0x01)
+	#define Pin1	(0x02)
+	#define Pin2	(0x04)
+	#define Pin3	(0x08)
+	#define Pin4	(0x10)
+	#define Pin5	(0x20)
+	#define Pin6	(0x40)
+	#define	Pin7	(0x80)
+	
+priority:
+	0 - highest
+	1 - lowest
+	
+type:
+	#define GPIO_FALLING_EDGE       0x00000000  // Interrupt on falling edge
+	#define GPIO_RISING_EDGE        0x00000004  // Interrupt on rising edge
+	#define GPIO_BOTH_EDGES         0x00000001  // Interrupt on both edges
+	#define GPIO_LOW_LEVEL          0x00000002  // Interrupt on low level
+	#define GPIO_HIGH_LEVEL         0x00000006  // Interrupt on high level
+	#define GPIO_DISCRETE_INT       0x00010000  // Interrupt for individual pins
+
+resistor:
+	#define GPIO_PIN_TYPE_STD       0x00000008  // Push-pull
+	#define GPIO_PIN_TYPE_STD_WPU   0x0000000A  // Push-pull with weak pull-up
+	#define GPIO_PIN_TYPE_STD_WPD   0x0000000C  // Push-pull with weak pull-down
+	#define GPIO_PIN_TYPE_OD        0x00000009  // Open-drain
+	#define GPIO_PIN_TYPE_ANALOG    0x00000000  // Analog comparator
+	#define GPIO_PIN_TYPE_WAKE_HIGH 0x00000208  // Hibernate wake, high
+	#define GPIO_PIN_TYPE_WAKE_LOW  0x00000108  // Hibernate wake, low

@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application
+-IF:\1_Projects\stepper_motor_test_wOS\RTE
+-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include
+-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
+-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1
+-o .\generated\objects\stepper_motor.o --omf_browse .\generated\objects\stepper_motor.crf --depend .\generated\objects\stepper_motor.d "application\stepper_motor.c"

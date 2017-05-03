@@ -1,0 +1,6 @@
+--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork 
+-IF:\1_Projects\stepper_motor_test_wOS\RTE
+-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include
+-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
+--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"
+--list .\generated\listings\startup_tm4c123.lst --xref -o .\generated\objects\startup_tm4c123.o --depend .\generated\objects\startup_tm4c123.d "RTE\Device\TM4C123GH6PM\startup_TM4C123.s"

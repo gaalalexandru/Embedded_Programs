@@ -1,0 +1,10 @@
+.\objects\main.o: main.c
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\main.o: ..\..\tools\TivaWare_C_Series-2.1.1.71\driverlib\gpio.h
+.\objects\main.o: ..\..\tools\TivaWare_C_Series-2.1.1.71\driverlib\sysctl.h
+.\objects\main.o: ..\..\tools\TivaWare_C_Series-2.1.1.71\driverlib\pin_map.h
+.\objects\main.o: ..\..\tools\TivaWare_C_Series-2.1.1.71\driverlib\interrupt.h
+.\objects\main.o: ..\..\tools\TivaWare_C_Series-2.1.1.71\inc\hw_memmap.h
+.\objects\main.o: ..\..\tools\TivaWare_C_Series-2.1.1.71\inc\hw_ints.h
+.\objects\main.o: uart_handler.h

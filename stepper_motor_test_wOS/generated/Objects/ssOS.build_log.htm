@@ -1,0 +1,103 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.21.1.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Gaal Alexandru, Home, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.21a
+Toolchain Path:  F:\0_Tools\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 3 (build 300)
+Assembler:       Armasm.exe V5.06 update 3 (build 300)
+Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
+Library Manager: ArmAr.exe V5.06 update 3 (build 300)
+Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
+CPU DLL:         SARMCM3.DLL V5.21a
+Dialog DLL:      DCM.DLL V1.13.8.0
+Target DLL:      lmidk-agdi.dll V???
+Dialog DLL:      TCM.DLL V1.14.14.0
+ 
+<h2>Project:</h2>
+F:\1_Projects\stepper_motor_test_wOS\ssOS.uvprojx
+Project File Date:  11/29/2016
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'F:\0_Tools\Keil_v5\ARM\ARMCC\Bin'
+*** Note: Rebuilding project, since 'Options->Output->Create Batch File' is selected.
+Rebuild target 'ssOS'
+creating preprocessor file for os_core.c...
+compiling os_core.c...
+assembling osasm.s...
+creating preprocessor file for os_hw.c...
+compiling os_hw.c...
+OS\os_hw.c(61): warning:  #177-D: variable "clock" was declared but never referenced
+        uint32_t clock;
+OS\os_hw.c(62): warning:  #177-D: variable "bit_prio" was declared but never referenced
+        uint32_t bit_prio;
+OS\os_hw.c: 2 warnings, 0 errors
+creating preprocessor file for main.c...
+.\application\stepper_motor.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 1 warning, 0 errors
+compiling main.c...
+.\application\stepper_motor.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 1 warning, 0 errors
+creating preprocessor file for Profile.c...
+compiling Profile.c...
+creating preprocessor file for BSP_TM4C.c...
+compiling BSP_TM4C.c...
+creating preprocessor file for stepper_motor.c...
+application\stepper_motor.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+application\stepper_motor.c(35): warning:  #1-D: last line of file ends without a newline
+  }
+application\stepper_motor.c: 2 warnings, 0 errors
+compiling stepper_motor.c...
+application\stepper_motor.h(20): warning:  #1-D: last line of file ends without a newline
+  #endif
+application\stepper_motor.c(35): warning:  #1-D: last line of file ends without a newline
+  }
+application\stepper_motor.c: 2 warnings, 0 errors
+assembling startup_TM4C123.s...
+creating preprocessor file for system_TM4C123.c...
+compiling system_TM4C123.c...
+linking...
+Program Size: Code=4208 RO-data=652 RW-data=112 ZI-data=4240  
+FromELF: creating hex file...
+".\generated\Objects\ssOS.axf" - 0 Error(s), 8 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.0-Beta12.pack
+                ARM::CMSIS:CORE:5.0.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.TM4C_DFP.1.1.0.pack
+                Keil::Device:Startup:1.0.1
+                Texas Instruments Tiva C Series Device Support and Examples
+   * Component: Startup Version: 1.0.1
+
+<h2>Collection of Component include folders:</h2>
+  F:\1_Projects\stepper_motor_test_wOS\RTE
+  F:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include
+  F:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.0
+
+   * Component: Keil::Device:Startup:1.0.1
+      Include file:  Device\Include\TM4C123\TM4C123.h
+      Source file:   Device\Source\ARM\startup_TM4C123.s
+      Source file:   Device\Source\system_TM4C123.c
+Build Time Elapsed:  00:00:07
+</pre>
+</body>
+</html>

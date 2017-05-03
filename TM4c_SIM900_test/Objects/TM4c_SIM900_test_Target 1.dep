@@ -1,0 +1,19 @@
+Dependencies for Project 'TM4c_SIM900_test', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x58DE1FCB)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\TivaWare_C_Series-2.1.1.71-IF:\1_Projects\TM4c_SIM900_test\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DTM4C1230H6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (uart_handler.h)(0x58DE25E8)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
+F (.\uart_handler.c)(0x58DE25C7)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\TivaWare_C_Series-2.1.1.71-IF:\1_Projects\TM4c_SIM900_test\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="521" -DTM4C1230H6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\uart_handler.o --omf_browse .\objects\uart_handler.crf --depend .\objects\uart_handler.d)
+I (uart_handler.h)(0x58DE25E8)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/gpio.h)(0x58D6E940)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
+F (..\TivaWare_C_Series-2.1.1.71\driverlib\rvmdk\driverlib.lib)(0x581EE253)()
+F (.\startup_TM4C123.s)(0x58D58635)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -IF:\1_Projects\TM4c_SIM900_test\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 521" --pd "TM4C1230H6PM SETA 1"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)

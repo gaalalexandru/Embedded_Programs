@@ -1,0 +1,67 @@
+Dependencies for Project 'ssOS', Target 'ssOS': (DO NOT MODIFY !)
+F (.\OS\os_core.c)(0x583AE208)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application-IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\generated\objects\os_core.o --omf_browse .\generated\objects\os_core.crf --depend .\generated\objects\os_core.d)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (OS\os_core.h)(0x583AE208)
+I (OS\os_hw.h)(0x583C9501)
+I (.\3rd_party\BSP_TM4C.h)(0x583AE208)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_ints.h)(0x5648E7CD)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/gpio.h)(0x583AC959)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/interrupt.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
+I (.\inc\CortexM.h)(0x5815FAAA)
+F (.\OS\osasm.s)(0x583AE208)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\generated\listings\osasm.lst --xref -o .\generated\objects\osasm.o --depend .\generated\objects\osasm.d)
+F (.\OS\os_hw.c)(0x583C94E8)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application-IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\generated\objects\os_hw.o --omf_browse .\generated\objects\os_hw.crf --depend .\generated\objects\os_hw.d)
+I (OS\os_hw.h)(0x583C9501)
+I (OS\os_core.h)(0x583AE208)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (.\3rd_party\BSP_TM4C.h)(0x583AE208)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_ints.h)(0x5648E7CD)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/gpio.h)(0x583AC959)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/interrupt.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
+F (.\main.c)(0x58506686)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application-IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\generated\objects\main.o --omf_browse .\generated\objects\main.crf --depend .\generated\objects\main.d)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (.\OS\os_core.h)(0x583AE208)
+I (.\OS\os_hw.h)(0x583C9501)
+I (.\3rd_party\BSP_TM4C.h)(0x583AE208)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_ints.h)(0x5648E7CD)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/gpio.h)(0x583AC959)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/interrupt.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
+I (.\inc\profile.h)(0x5815FAAA)
+I (.\application\stepper_motor.h)(0x58506590)
+F (.\3rd_party\Profile.c)(0x5815FAA9)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application-IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\generated\objects\profile.o --omf_browse .\generated\objects\profile.crf --depend .\generated\objects\profile.d)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (3rd_party\../inc/tm4c123gh6pm.h)(0x5815FAAD)
+F (.\3rd_party\BSP_TM4C.c)(0x58505AF8)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application-IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\generated\objects\bsp_tm4c.o --omf_browse .\generated\objects\bsp_tm4c.crf --depend .\generated\objects\bsp_tm4c.d)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (3rd_party\BSP_TM4C.h)(0x583AE208)
+I (3rd_party\../inc/tm4c123gh6pm.h)(0x5815FAAD)
+F (.\readme.txt)(0x583AE208)()
+F (..\TivaWare_C_Series-2.1.1.71\driverlib\rvmdk\driverlib.lib)(0x581EE253)()
+F (.\application\stepper_motor.c)(0x5850659B)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application-IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\generated\objects\stepper_motor.o --omf_browse .\generated\objects\stepper_motor.crf --depend .\generated\objects\stepper_motor.d)
+I (application\stepper_motor.h)(0x58506590)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/gpio.h)(0x583AC959)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x5648E778)
+I (..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
+F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x583AE208)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\generated\listings\startup_tm4c123.lst --xref -o .\generated\objects\startup_tm4c123.o --depend .\generated\objects\startup_tm4c123.d)
+F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x5815FAAA)(--c99 -c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .\inc -I .\OS -I .\3rd_party -I ..\TivaWare_C_Series-2.1.1.71 -I ..\TivaWare_C_Series-2.1.1.71 -I .\application-IF:\1_Projects\stepper_motor_test_wOS\RTE-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\generated\objects\system_tm4c123.o --omf_browse .\generated\objects\system_tm4c123.crf --depend .\generated\objects\system_tm4c123.d)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530F0F16)
+I (F:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FFE4C)
+I (F:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include\core_cm4.h)(0x57D8113A)
+I (F:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include\cmsis_compiler.h)(0x57D8113A)
+I (F:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include\cmsis_armcc.h)(0x57EB62CC)
+I (F:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B70026)
