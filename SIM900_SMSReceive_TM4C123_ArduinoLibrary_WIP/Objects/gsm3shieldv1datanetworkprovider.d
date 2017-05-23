@@ -1,0 +1,10 @@
+.\objects\gsm3shieldv1datanetworkprovider.o: src\GSM3ShieldV1DataNetworkProvider.cpp
+.\objects\gsm3shieldv1datanetworkprovider.o: .\src\GSM3ShieldV1DataNetworkProvider.h
+.\objects\gsm3shieldv1datanetworkprovider.o: .\src\GSM3MobileDataNetworkProvider.h
+.\objects\gsm3shieldv1datanetworkprovider.o: .\src\GSM3MobileAccessProvider.h
+.\objects\gsm3shieldv1datanetworkprovider.o: .\src\GSM3ShieldV1BaseProvider.h
+.\objects\gsm3shieldv1datanetworkprovider.o: .\src\GSM3SoftSerial.h
+.\objects\gsm3shieldv1datanetworkprovider.o: .\src\GSM3CircularBuffer.h
+.\objects\gsm3shieldv1datanetworkprovider.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\gsm3shieldv1datanetworkprovider.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gsm3shieldv1datanetworkprovider.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

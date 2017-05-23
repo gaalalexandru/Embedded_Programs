@@ -1,0 +1,213 @@
+Dependencies for Project 'Receive_SMS_GSM_Library', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup_TM4C123.s)(0x570F99BA)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123--pd "__UVISION_VERSION SETA 521"--list .\listings\startup_tm4c123.lst --xref -o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
+F (.\Arduino.h)(0x5916FB9B)()
+F (.\IPAddress.h)(0x5916FC24)()
+F (.\src\GSM3CircularBuffer.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3circularbuffer.o --omf_browse .\objects\gsm3circularbuffer.crf --depend .\objects\gsm3circularbuffer.d)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3MobileAccessProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobileaccessprovider.o --omf_browse .\objects\gsm3mobileaccessprovider.crf --depend .\objects\gsm3mobileaccessprovider.d)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+F (.\src\GSM3MobileCellManagement.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobilecellmanagement.o --omf_browse .\objects\gsm3mobilecellmanagement.crf --depend .\objects\gsm3mobilecellmanagement.d)
+I (.\src\GSM3MobileCellManagement.h)(0x58345EBC)
+F (.\src\GSM3MobileClientProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobileclientprovider.o --omf_browse .\objects\gsm3mobileclientprovider.crf --depend .\objects\gsm3mobileclientprovider.d)
+I (.\src\GSM3MobileClientProvider.h)(0x58345EBC)
+F (.\src\GSM3MobileClientService.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobileclientservice.o --omf_browse .\objects\gsm3mobileclientservice.crf --depend .\objects\gsm3mobileclientservice.d)
+I (.\src\GSM3MobileClientService.h)(0x58345EBC)
+I (.\src\GSM3MobileNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3MobileDataNetworkProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobiledatanetworkprovider.o --omf_browse .\objects\gsm3mobiledatanetworkprovider.crf --depend .\objects\gsm3mobiledatanetworkprovider.d)
+I (.\src\GSM3MobileDataNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+F (.\src\GSM3MobileMockupProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobilemockupprovider.o --omf_browse .\objects\gsm3mobilemockupprovider.crf --depend .\objects\gsm3mobilemockupprovider.d)
+I (.\src\GSM3MobileNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3MobileNetworkProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobilenetworkprovider.o --omf_browse .\objects\gsm3mobilenetworkprovider.crf --depend .\objects\gsm3mobilenetworkprovider.d)
+I (.\src\GSM3MobileNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3MobileNetworkRegistry.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobilenetworkregistry.o --omf_browse .\objects\gsm3mobilenetworkregistry.crf --depend .\objects\gsm3mobilenetworkregistry.d)
+I (.\src\GSM3MobileNetworkRegistry.h)(0x58345EBC)
+I (.\src\GSM3MobileNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3MobileServerProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobileserverprovider.o --omf_browse .\objects\gsm3mobileserverprovider.crf --depend .\objects\gsm3mobileserverprovider.d)
+I (.\src\GSM3MobileServerProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3MobileServerService.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobileserverservice.o --omf_browse .\objects\gsm3mobileserverservice.crf --depend .\objects\gsm3mobileserverservice.d)
+I (.\src\GSM3MobileServerService.h)(0x58345EBC)
+I (.\src\GSM3MobileNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3MobileSMSProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobilesmsprovider.o --omf_browse .\objects\gsm3mobilesmsprovider.crf --depend .\objects\gsm3mobilesmsprovider.d)
+I (.\src\GSM3MobileSMSProvider.h)(0x58345EBC)
+F (.\src\GSM3MobileVoiceProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3mobilevoiceprovider.o --omf_browse .\objects\gsm3mobilevoiceprovider.crf --depend .\objects\gsm3mobilevoiceprovider.d)
+I (.\src\GSM3MobileVoiceProvider.h)(0x58345EBC)
+F (.\src\GSM3ShieldV1.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1.o --omf_browse .\objects\gsm3shieldv1.crf --depend .\objects\gsm3shieldv1.d)
+I (.\src\GSM3ShieldV1.h)(0x58345EBC)
+I (.\src\GSM3MobileNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1AccessProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1accessprovider.o --omf_browse .\objects\gsm3shieldv1accessprovider.crf --depend .\objects\gsm3shieldv1accessprovider.d)
+I (.\src\GSM3ShieldV1AccessProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1BandManagement.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1bandmanagement.o --omf_browse .\objects\gsm3shieldv1bandmanagement.crf --depend .\objects\gsm3shieldv1bandmanagement.d)
+I (.\src\GSM3ShieldV1BandManagement.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1DirectModemProvider.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1BaseProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1baseprovider.o --omf_browse .\objects\gsm3shieldv1baseprovider.crf --depend .\objects\gsm3shieldv1baseprovider.d)
+I (.\src\GSM3ShieldV1BaseProvider.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1CellManagement.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1cellmanagement.o --omf_browse .\objects\gsm3shieldv1cellmanagement.crf --depend .\objects\gsm3shieldv1cellmanagement.d)
+I (.\src\GSM3ShieldV1CellManagement.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1ClientProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1clientprovider.o --omf_browse .\objects\gsm3shieldv1clientprovider.crf --depend .\objects\gsm3shieldv1clientprovider.d)
+I (.\src\GSM3ShieldV1ClientProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileClientProvider.h)(0x58345EBC)
+F (.\src\GSM3ShieldV1DataNetworkProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1datanetworkprovider.o --omf_browse .\objects\gsm3shieldv1datanetworkprovider.crf --depend .\objects\gsm3shieldv1datanetworkprovider.d)
+I (.\src\GSM3ShieldV1DataNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileDataNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1BaseProvider.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1DirectModemProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1directmodemprovider.o --omf_browse .\objects\gsm3shieldv1directmodemprovider.crf --depend .\objects\gsm3shieldv1directmodemprovider.d)
+I (.\src\GSM3ShieldV1DirectModemProvider.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1ModemCore.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1modemcore.o --omf_browse .\objects\gsm3shieldv1modemcore.crf --depend .\objects\gsm3shieldv1modemcore.d)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1ModemVerification.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1modemverification.o --omf_browse .\objects\gsm3shieldv1modemverification.crf --depend .\objects\gsm3shieldv1modemverification.d)
+I (.\src\GSM3ShieldV1ModemVerification.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1AccessProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1MultiClientProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1multiclientprovider.o --omf_browse .\objects\gsm3shieldv1multiclientprovider.crf --depend .\objects\gsm3shieldv1multiclientprovider.d)
+I (.\src\GSM3ShieldV1MultiClientProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileClientProvider.h)(0x58345EBC)
+F (.\src\GSM3ShieldV1MultiServerProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1multiserverprovider.o --omf_browse .\objects\gsm3shieldv1multiserverprovider.crf --depend .\objects\gsm3shieldv1multiserverprovider.d)
+I (.\src\GSM3ShieldV1MultiServerProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileServerProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+I (.\src\GSM3ShieldV1BaseProvider.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+F (.\src\GSM3ShieldV1PinManagement.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1pinmanagement.o --omf_browse .\objects\gsm3shieldv1pinmanagement.crf --depend .\objects\gsm3shieldv1pinmanagement.d)
+I (.\src\GSM3ShieldV1PinManagement.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1AccessProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1ScanNetworks.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1scannetworks.o --omf_browse .\objects\gsm3shieldv1scannetworks.crf --depend .\objects\gsm3shieldv1scannetworks.d)
+I (.\src\GSM3ShieldV1ScanNetworks.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1AccessProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1ServerProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1serverprovider.o --omf_browse .\objects\gsm3shieldv1serverprovider.crf --depend .\objects\gsm3shieldv1serverprovider.d)
+I (.\src\GSM3ShieldV1ServerProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileServerProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+I (.\src\GSM3ShieldV1BaseProvider.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+F (.\src\GSM3ShieldV1SMSProvider.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1smsprovider.o --omf_browse .\objects\gsm3shieldv1smsprovider.crf --depend .\objects\gsm3shieldv1smsprovider.d)
+I (.\src\GSM3ShieldV1SMSProvider.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3ShieldV1VoiceProvider.cpp)(0x58345EBE)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3shieldv1voiceprovider.o --omf_browse .\objects\gsm3shieldv1voiceprovider.crf --depend .\objects\gsm3shieldv1voiceprovider.d)
+I (.\src\GSM3ShieldV1VoiceProvider.h)(0x58345EBE)
+I (.\src\GSM3MobileVoiceProvider.h)(0x58345EBC)
+I (.\src\GSM3ShieldV1ModemCore.h)(0x58345EBC)
+I (.\src\GSM3SoftSerial.h)(0x58345EBE)
+I (.\src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3SMSService.cpp)(0x58345EBC)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3smsservice.o --omf_browse .\objects\gsm3smsservice.crf --depend .\objects\gsm3smsservice.d)
+I (.\src\GSM3SMSService.h)(0x58345EBC)
+I (.\src\GSM3MobileSMSProvider.h)(0x58345EBC)
+F (.\src\GSM3SoftSerial.cpp)(0x58345EBE)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3softserial.o --omf_browse .\objects\gsm3softserial.crf --depend .\objects\gsm3softserial.d)
+I (src\GSM3SoftSerial.h)(0x58345EBE)
+I (src\GSM3CircularBuffer.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
+F (.\src\GSM3VoiceCallService.cpp)(0x58345EBE)(--cpp -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\src-IF:\0_Tools\Keil_v5\ARM\RV31\INC-IF:\0_Tools\Keil_v5\ARM\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\Inc\TI\TM4C123-D__UVISION_VERSION="521" -DTM4C123GH6PM-o .\objects\gsm3voicecallservice.o --omf_browse .\objects\gsm3voicecallservice.crf --depend .\objects\gsm3voicecallservice.d)
+I (.\src\GSM3VoiceCallService.h)(0x58345EBE)
+I (.\src\GSM3MobileNetworkProvider.h)(0x58345EBC)
+I (.\src\GSM3MobileAccessProvider.h)(0x58345EBC)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
+I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stddef.h)(0x574E9286)
