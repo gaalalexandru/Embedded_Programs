@@ -1,76 +1,0 @@
-Dependencies for Project 'SIM900_SMSReceiveTest_TM4C123', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x58FB7829)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\TivaWare_C_Series-2.1.1.71-I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -DPART_TM4C123GH6PM-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib\gpio.h)(0x58D6E940)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib\sysctl.h)(0x5831B413)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib\pin_map.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib\interrupt.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc\hw_memmap.h)(0x581F1834)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc\hw_ints.h)(0x5648E7CD)
-I (uart_handler.h)(0x5902237F)
-I (gsm.h)(0x58F3F919)
-F (.\GSM.c)(0x59023945)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\TivaWare_C_Series-2.1.1.71-I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -DPART_TM4C123GH6PM-o .\objects\gsm.o --omf_browse .\objects\gsm.crf --depend .\objects\gsm.d)
-I (SecSys_Config.h)(0x58F3F919)
-I (GSM.h)(0x58F3F919)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
-I (pc_display.h)(0x58F3F919)
-I (uart_handler.h)(0x5902237F)
-I (..\..\TivaWare_C_Series-2.1.1.71\utils\uartstdio.h)(0x58FCF459)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\string.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdio.h)(0x574E9286)
-F (.\uart_handler.c)(0x590223AD)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\TivaWare_C_Series-2.1.1.71-I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -DPART_TM4C123GH6PM-o .\objects\uart_handler.o --omf_browse .\objects\uart_handler.crf --depend .\objects\uart_handler.d)
-I (uart_handler.h)(0x5902237F)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (pc_display.h)(0x58F3F919)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/gpio.h)(0x58D6E940)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/interrupt.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_ints.h)(0x5648E7CD)
-I (..\..\TivaWare_C_Series-2.1.1.71\utils/uartstdio.h)(0x58FCF459)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x574E9286)
-F (.\SecSys_Config.h)(0x58F3F919)()
-F (.\pc_display.c)(0x58F3F919)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\TivaWare_C_Series-2.1.1.71-I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -DPART_TM4C123GH6PM-o .\objects\pc_display.o --omf_browse .\objects\pc_display.crf --depend .\objects\pc_display.d)
-I (SecSys_Config.h)(0x58F3F919)
-I (pc_display.h)(0x58F3F919)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (uart_handler.h)(0x5902237F)
-F (.\fifo.c)(0x58F7A967)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\TivaWare_C_Series-2.1.1.71-I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -DPART_TM4C123GH6PM-o .\objects\fifo.o --omf_browse .\objects\fifo.crf --depend .\objects\fifo.d)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (FIFO.h)(0x58F7CFDB)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
-F (..\..\TivaWare_C_Series-2.1.1.71\driverlib\rvmdk\driverlib.lib)(0x581EE253)()
-F (..\..\TivaWare_C_Series-2.1.1.71\utils\uartstdio.c)(0x58FCF45A)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\TivaWare_C_Series-2.1.1.71-I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -DPART_TM4C123GH6PM-o .\objects\uartstdio.o --omf_browse .\objects\uartstdio.crf --depend .\objects\uartstdio.d)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x574E9286)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_ints.h)(0x5648E7CD)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x581F1834)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_types.h)(0x5648E7CD)
-I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_uart.h)(0x5648E7CD)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/debug.h)(0x5648E777)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/interrupt.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/rom.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/rom_map.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5831B413)
-I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h)(0x5648E778)
-I (..\..\TivaWare_C_Series-2.1.1.71\utils/uartstdio.h)(0x58FCF459)
-F (RTE\Device\TM4C123GH6PM\startup_TM4C123.s)(0x58FCFF3A)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 521" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"-o .\objects\startup_tm4c123.o --depend .\objects\startup_tm4c123.d)
-F (RTE\Device\TM4C123GH6PM\system_TM4C123.c)(0x58F3F919)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\TivaWare_C_Series-2.1.1.71-I"F:\1_Projects\Embedded_Programs\SIM900_SMSReceiveTest_TM4C123_WIP_HW_Fifo_Simplified - Copy\RTE"-IF:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include-IF:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="521" -D_RTE_ -DTM4C123GH6PM -DPART_TM4C123GH6PM-o .\objects\system_tm4c123.o --omf_browse .\objects\system_tm4c123.crf --depend .\objects\system_tm4c123.d)
-I (F:\0_Tools\Keil_v5\ARM\ARMCC\include\stdint.h)(0x574E9286)
-I (F:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123.h)(0x530F0F16)
-I (F:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\TM4C123GH6PM.h)(0x550FFE4C)
-I (F:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include\core_cm4.h)(0x57D8113A)
-I (F:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include\cmsis_compiler.h)(0x57D8113A)
-I (F:\0_Tools\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta12\CMSIS\Include\cmsis_armcc.h)(0x57EB62CC)
-I (F:\0_Tools\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123\system_TM4C123.h)(0x51B70026)
