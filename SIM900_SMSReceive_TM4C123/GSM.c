@@ -37,10 +37,10 @@ bool testDelete = 1;  // Delete messages during processing
 
 // Data from most recent incoming message stored here
 char responseLine[RESONSE_MAX_LINE][RESONSE_MAX_LENGHT];  // Use to store UART inputs
-static char *msgContent = NULL;;  // Message content holder
-static char *msgSender = NULL;;  // Message sender
-static char *msgDate = NULL;;  // Message date
-static char *msgTime = NULL;;  // Message time
+static char *msgContent = NULL;  // Message content holder
+static char *msgSender = NULL;  // Message sender
+static char *msgDate = NULL;  // Message date
+static char *msgTime = NULL;  // Message time
 static uint8_t msgReadRepeatIndex = 0;
 char *GSMcommand[MESSAGE_READ_REAPEATS];
 
@@ -53,7 +53,6 @@ void SyncWithGSM(void){
 }
 void PowerOnGSM(void){
 	uint8_t lineCount = 0;
-	
 	SyncWithGSM();
 	
 	//Setup message format: TEXT
@@ -124,7 +123,7 @@ if(!first_execution){
 		PC_Display_Message("> FROM :",0,msgSender);  //TODO: Try to send a BS to delete the 0
 		PC_Display_Message("> AT :",0,msgDate);			
 		PC_Display_Message("> ON :",0,msgTime);
-		PC_Display_Message("> TEXT :",0,msgContent);	
+		PC_Display_Message("> TEXT :",0,msgContent);
 #endif
 		SysCtlDelay(Millis2Ticks(100));		
 		UARTprintf("AT+CMGD=1,4\r");
