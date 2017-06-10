@@ -32,7 +32,6 @@ void Switch1(void){
 
 void Switch2(void){
 	uint8_t *GSMcommand;
-	//GSMgetCommand(GSMcommand,SMS);
 	GSMprocessMessage(SMS);
 	
 }

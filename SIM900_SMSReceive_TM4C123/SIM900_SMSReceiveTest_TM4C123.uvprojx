@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>PART_TM4C123GH6PM</Define>
               <Undefine></Undefine>
-              <IncludePath>..\TivaWare_C_Series-2.1.1.71</IncludePath>
+              <IncludePath>..\..\TivaWare_C_Series-2.1.1.71</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -417,12 +417,12 @@
             <File>
               <FileName>driverlib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\TivaWare_C_Series-2.1.1.71\driverlib\rvmdk\driverlib.lib</FilePath>
+              <FilePath>..\..\TivaWare_C_Series-2.1.1.71\driverlib\rvmdk\driverlib.lib</FilePath>
             </File>
             <File>
               <FileName>uartstdio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\TivaWare_C_Series-2.1.1.71\utils\uartstdio.c</FilePath>
+              <FilePath>..\..\TivaWare_C_Series-2.1.1.71\utils\uartstdio.c</FilePath>
             </File>
           </Files>
         </Group>

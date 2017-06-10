@@ -1,7 +1,6 @@
 /*------------------Project Includes-----------------*/
 #include "uart_handler.h"
 #include "pc_display.h"
-//#include "fifo.h"
 /*-------------------Driver Includes-----------------*/
 #include "driverlib/sysctl.h"
 #include "driverlib/uart.h"
@@ -25,45 +24,11 @@
 #define GPIO_PORTD_LOCK_R       (*((volatile uint32_t *)0x40007520))
 #define GPIO_PORTD_CR_R         (*((volatile uint32_t *)0x40007524))
 
-//#define FIFOSIZE   128	// size of the FIFOs (must be power of 2)
-//#define FIFOSUCCESS 1		// return value on success
-//#define FIFOFAIL    0		// return value on failure
-
-// create index implementation FIFO (see FIFO.h)
-//AddIndexFifo(GSM_Rx, FIFOSIZE, char, FIFOSUCCESS, FIFOFAIL)
-//AddPointerFifo(GSM_Rx, FIFOSIZE, char, FIFOSUCCESS, FIFOFAIL)
-//AddIndexFifo(GSM_Tx, FIFOSIZE, char, FIFOSUCCESS, FIFOFAIL)
-//AddPointerFifo(GSM_Tx, FIFOSIZE, char, FIFOSUCCESS, FIFOFAIL)
-
 /*-------------Global Variable Definitions------------*/
 extern int32_t SMSReceived;
 uint32_t Baud_Rate_Read = 0;
 uint32_t GSM_Baud_Rate_Read = 0;
 extern void UARTStdioIntHandler(void);
-/*-------------------Function Definitions-------------*/
-// copy from hardware RX FIFO to software RX FIFO
-// stop when hardware RX FIFO is empty or software RX FIFO is full
-/*
-void static copyHardwareToSoftware(void){
-	char letter;
-	while((UARTCharsAvail(UART2_BASE)) && (GSM_RxFifo_Size() < (FIFOSIZE - 1))){
-		letter = UARTCharGet(UART2_BASE);
-		GSM_RxFifo_Put(letter);
-		PC_Display_Message("HW -> SW char sent ",letter," ");
-	}
-}
-
-// copy from software TX FIFO to hardware TX FIFO
-// stop when software TX FIFO is empty or hardware TX FIFO is full
-void static copySoftwareToHardware(void){
-	char letter;
-	while((UARTSpaceAvail(UART2_BASE)) && (GSM_TxFifo_Size() > 0)){
-		GSM_TxFifo_Get(&letter);
-		UARTCharPut(UART2_BASE,letter);
-		PC_Display_Message("SW -> HW char sent ",letter," ");
-	}
-}
-*/
 
 //*****************************************************************************
 //
@@ -116,6 +81,11 @@ void UART0_SendNewLine(void){
 //*****************************************************************************
 //
 // UART2 SPECIFIC FUNCTIONS
+// UART2 is configured to use the utils/uartstdio.h library
+// this library has to be configured to work in BUFFERED mode
+// ex. SW fifo between application and HW UART fifo
+// To send data use: UARTprintf("string to send");
+// To receive data use: UARTgets(stringVar ,sizeof(stringVar));
 //
 //*****************************************************************************
 void UART2_Init(void){
@@ -124,9 +94,6 @@ void UART2_Init(void){
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);  //Enable clock on port D  //PD6 and PD7 will be RX and TX to GSM module
 	while(!SysCtlPeripheralReady(SYSCTL_PERIPH_UART2));  //wait for UART2 to initialize
 	while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOD));  //wait for PortD to initialize
-	
-	//GSM_RxFifo_Init();  // initialize empty FIFOs
-	//GSM_TxFifo_Init();
 	
 	GPIO_PORTD_LOCK_R = 0x4C4F434B;  //Unlock GPIO PD7
 	GPIO_PORTD_CR_R |= 0xC0;  //Allow changes to PD6,7
@@ -141,21 +108,12 @@ void UART2_Init(void){
 	
 	UARTClockSourceSet(UART2_BASE, UART_CLOCK_SYSTEM);  //Set the clock source for UART2
 	//Next: Set the BAUD RATE, and configure UART2 with 8 data bits, 1 stop bit and no parity bit
-	//UARTConfigSetExpClk(UART2_BASE, SysCtlClockGet(), GSM_BAUD_RATE, (UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE |UART_CONFIG_PAR_NONE));  
 	UARTParityModeSet(UART2_BASE, UART_CONFIG_PAR_NONE);
-	//UARTFIFOLevelSet(UART2_BASE,UART_FIFO_TX1_8,UART_FIFO_RX1_8);
-	
 	UARTFIFOEnable(UART2_BASE);  //Enable the UART FIFO
-	//UARTEnable(UART2_BASE);  //Enable UART2
-	//UARTIntEnable(UART2_BASE,UART_INT_RX|UART_INT_TX|UART_INT_RT);
-	//IntPrioritySet(INT_UART2,(UART2_INT_PRIO<<5));
-	//IntEnable(INT_UART2);
-	
+
 	UARTStdioConfig(GSM_UART_PORT, GSM_BAUD_RATE, SysCtlClockGet());
 	UARTEchoSet(false);
-	
 	UARTIntRegister(UART2_BASE,&UARTStdioIntHandler);
-	
 	UARTConfigGetExpClk(UART2_BASE, SysCtlClockGet(), &GSM_Baud_Rate_Read, &uart_config_read);  //Get the Baud Rate
 }
 

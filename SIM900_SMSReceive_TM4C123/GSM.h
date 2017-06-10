@@ -10,7 +10,6 @@ void PowerOnGSM(void);
 uint8_t GSMgetResponse(void);
 bool GSMparseMessage(uint8_t lineCount);
 void GSMprocessMessage(uint8_t msgNum);
-void GSMprocessMessageNew(uint8_t msgNum);
 #endif
 //EOF
 

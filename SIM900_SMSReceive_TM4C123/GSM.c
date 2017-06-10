@@ -106,37 +106,28 @@ void GSMprocessMessage(uint8_t msgNum) {
 	// Request the message and get the lines of the response (includes envelope, nulls, SIM responses)
 	//PC_Display_Message("> Processing message :",msgNum," ");
 	UARTprintf("AT+CMGR=%u\n",msgNum);
-if(!first_execution){
-	SysCtlDelay(Millis2Ticks(1));
+	if(!first_execution) {
+		SysCtlDelay(Millis2Ticks(1));
+		lineCount = GSMgetResponse();
+		// Make sure there's message content, process for envelope and content
+		msgPresent = GSMparseMessage(lineCount);
 
-	
-	lineCount = GSMgetResponse();
-	// Make sure there's message content, process for envelope and content
-	msgPresent = GSMparseMessage(lineCount);
-
-#if SHOW_FINAL_INFO
-	// Show the user what we found
-	//PC_Display_Message("\n\r>>> MESSAGE :",msgNum," ");
-#endif
-	if (msgPresent) {
-#if SHOW_FINAL_INFO
-		PC_Display_Message("> FROM :",0,msgSender);  //TODO: Try to send a BS to delete the 0
-		PC_Display_Message("> AT :",0,msgDate);			
-		PC_Display_Message("> ON :",0,msgTime);
-		PC_Display_Message("> TEXT :",0,msgContent);
-#endif
-		SysCtlDelay(Millis2Ticks(100));		
-		UARTprintf("AT+CMGD=1,4\r");
-		UARTprintf("AT+CMGDA=\"DEL ALL\"");
-		SysCtlDelay(Millis2Ticks(100));
-#if SHOW_FINAL_INFO
-		PC_Display_Message("> Message deleted!!!",0,"");
-#endif
+		if (msgPresent) {
+			#if SHOW_FINAL_INFO
+			PC_Display_Message("> FROM :",0,msgSender);  //TODO: Try to send a BS to delete the 0
+			PC_Display_Message("> AT :",0,msgDate);			
+			PC_Display_Message("> ON :",0,msgTime);
+			PC_Display_Message("> TEXT :",0,msgContent);
+			SysCtlDelay(Millis2Ticks(100));		
+			UARTprintf("AT+CMGD=1,4\r");
+			UARTprintf("AT+CMGDA=\"DEL ALL\"");
+			SysCtlDelay(Millis2Ticks(100));
+			PC_Display_Message("> Message deleted!!!",0,"");
+			#endif
+		}
+		//else PC_Display_Message("> NOT PRESENT!",0," ");
 	}
-	//else PC_Display_Message("> NOT PRESENT!",0," ");
-
-}
-first_execution = 0;
+	first_execution = 0;
 }
 
 //*****************************************************************************
