@@ -1,9 +1,8 @@
---cpu=Cortex-M4.fp
+--cpu Cortex-M4.fp
 ".\objects\main.o"
 ".\objects\gsm.o"
 ".\objects\uart_handler.o"
 ".\objects\pc_display.o"
-".\objects\fifo.o"
 "..\..\TivaWare_C_Series-2.1.1.71\driverlib\rvmdk\driverlib.lib"
 ".\objects\uartstdio.o"
 ".\objects\startup_tm4c123.o"

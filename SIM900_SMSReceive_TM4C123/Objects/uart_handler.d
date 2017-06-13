@@ -1,7 +1,7 @@
 .\objects\uart_handler.o: uart_handler.c
 .\objects\uart_handler.o: uart_handler.h
-.\objects\uart_handler.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\uart_handler.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\uart_handler.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\uart_handler.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\uart_handler.o: pc_display.h
 .\objects\uart_handler.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h
 .\objects\uart_handler.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h
@@ -11,4 +11,4 @@
 .\objects\uart_handler.o: ..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h
 .\objects\uart_handler.o: ..\..\TivaWare_C_Series-2.1.1.71\inc/hw_ints.h
 .\objects\uart_handler.o: ..\..\TivaWare_C_Series-2.1.1.71\utils/uartstdio.h
-.\objects\uart_handler.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\uart_handler.o: F:\0_Tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

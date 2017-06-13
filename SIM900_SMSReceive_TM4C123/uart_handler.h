@@ -24,11 +24,5 @@ void UART0_SendNewLine(void);
 
 //UART2 functions
 void UART2_Init(void);
-void UART2_SendChar(uint8_t data);
-void UART2_SendString(uint8_t *pt);
-void UART2_SendUDecimal(uint32_t n);
-void UART2_SendNewLine(void);
-char UART2_GetChar(void);
-void UART2_GetString(char *bufPt, uint16_t max);
 #endif
 //EOF

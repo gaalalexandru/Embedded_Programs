@@ -41,8 +41,6 @@ static char *msgContent = NULL;  // Message content holder
 static char *msgSender = NULL;  // Message sender
 static char *msgDate = NULL;  // Message date
 static char *msgTime = NULL;  // Message time
-static uint8_t msgReadRepeatIndex = 0;
-char *GSMcommand[MESSAGE_READ_REAPEATS];
 
 /*-------------Local Variable Definitions-------------*/
 
@@ -52,7 +50,11 @@ void SyncWithGSM(void){
 	while ((UARTgetc()!='O')&&(UARTgetc()!='K')){}; //Wait for OK response
 }
 void PowerOnGSM(void){
-	uint8_t lineCount = 0;
+	/*
+	TODO: Keep GSM module reset pin in the following states to reset it.
+	GSM_Power_Pin = High -> wait 1 second
+	GSM_Power_Pin = Low -> WaitForInterrupt 7 seconds
+	*/
 	SyncWithGSM();
 	
 	//Setup message format: TEXT
@@ -82,8 +84,6 @@ void PowerOnGSM(void){
 }
 
 void GSMgetCommand(uint8_t *command,uint8_t msgId){
-	uint8_t i,j = 0;
-	char c;
 	GSMprocessMessage(msgId);
 }
 
@@ -119,8 +119,8 @@ void GSMprocessMessage(uint8_t msgNum) {
 			PC_Display_Message("> ON :",0,msgTime);
 			PC_Display_Message("> TEXT :",0,msgContent);
 			SysCtlDelay(Millis2Ticks(100));		
-			UARTprintf("AT+CMGD=1,4\r");
-			UARTprintf("AT+CMGDA=\"DEL ALL\"");
+			UARTprintf("AT+CMGD=1,4\n");  //AleGaa maybe \r
+			UARTprintf("AT+CMGDA=\"DEL ALL\"\n");
 			SysCtlDelay(Millis2Ticks(100));
 			PC_Display_Message("> Message deleted!!!",0,"");
 			#endif
@@ -136,17 +136,17 @@ void GSMprocessMessage(uint8_t msgNum) {
 //
 //*****************************************************************************
 uint8_t GSMgetResponse(void) {
-bool readResponse = true;  // Keeps the loop open while getting message
-int readLine = 0;  // Counts the lines of the message
-char g_cInput[RESONSE_MAX_LENGHT];  // String input to a UART
-	
+	bool readResponse = true;  // Keeps the loop open while getting message
+	int readLine = 0;  // Counts the lines of the message
+	char g_cInput[RESONSE_MAX_LENGHT];  // String input to a UART
+
 	while(readResponse&&(readLine<RESONSE_MAX_LINE)) {  //TODO, do not hardcode, use macro
 		// Grab a line
 		if(UARTRxBytesAvail() > 2) UARTgets(g_cInput,sizeof(g_cInput));  //TODO test smaller FIFI levels
 		// Stop after: \n, \r, ESC, LF, CR, 
-#if SHOW_READING_INFO
+		#if SHOW_READING_INFO
 		PC_Display_Message(">>> Line nr: ", readLine, g_cInput);
-#endif
+		#endif
 		strcpy(responseLine[readLine],g_cInput);
 		
 		// If this line says OK or ERROR we've got the whole message
@@ -167,8 +167,8 @@ char g_cInput[RESONSE_MAX_LENGHT];  // String input to a UART
 //
 //*****************************************************************************
 bool GSMparseMessage(uint8_t lineCount) {
-uint8_t activeLine = 0;  // Counter for line being processed
-char *msgEnvelope = NULL;  // Message envelope holder
+	uint8_t activeLine = 0;  // Counter for line being processed
+	char *msgEnvelope = NULL;  // Message envelope holder
 
 	msgContent = NULL; // Clear out the old message
 	// Parse the new message
@@ -214,13 +214,13 @@ char *msgEnvelope = NULL;  // Message envelope holder
 		}
 		activeLine++; // Proceed to next line
 	}
-#if SHOW_PARSING_INFO			
+	#if SHOW_PARSING_INFO			
 	PC_Display_Message("> Envelope is: ",0,msgEnvelope);			
 	PC_Display_Message(">>> Sender is: ",0,msgSender);			
 	PC_Display_Message(">>> Date is: ",0,msgDate);			
 	PC_Display_Message(">>> Time is: ",0,msgTime);
 	PC_Display_Message(">>> Content is: ",0,msgContent);
-#endif		
+	#endif		
 
 	if (msgEnvelope == NULL) { // If we didn't find an envelope, there's no message
 		return false;
