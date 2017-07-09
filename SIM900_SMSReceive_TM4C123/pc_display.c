@@ -12,7 +12,7 @@
 
 /*-------------------Function Definitions-------------*/
 void PC_Display_Message( char *string1, uint32_t value, char *string2){
-	UART0_SendString((uint8_t*)string1);  //TODO check if casting is made OK
+	UART0_SendString((uint8_t*)string1);
 	UART0_SendUDecimal(value);
 	UART0_SendString((uint8_t*)string2);
 	UART0_SendNewLine();

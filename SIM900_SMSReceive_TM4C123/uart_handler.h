@@ -24,5 +24,7 @@ void UART0_SendNewLine(void);
 
 //UART2 functions
 void UART2_Init(void);
+void UART2_DirectSendChar(uint8_t data);
+void UART2_DirectSendString(uint8_t *pt);
 #endif
 //EOF

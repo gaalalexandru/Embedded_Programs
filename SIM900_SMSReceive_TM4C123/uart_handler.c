@@ -117,4 +117,15 @@ void UART2_Init(void){
 	UARTConfigGetExpClk(UART2_BASE, SysCtlClockGet(), &GSM_Baud_Rate_Read, &uart_config_read);  //Get the Baud Rate
 }
 
+void UART2_DirectSendChar(uint8_t data){
+	UARTCharPut(UART2_BASE, data);
+}
+
+void UART2_DirectSendString(uint8_t *pt){
+	while(*pt) { //While not the end of the string
+		UART2_DirectSendChar(*pt);  //send current character
+		pt++;  //move to next character
+	}
+}
+
 //EOF
