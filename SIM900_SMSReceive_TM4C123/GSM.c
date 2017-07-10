@@ -118,7 +118,7 @@ void GSMgetCommand(uint8_t *command,uint8_t msgId){
 
 void SendSMS(uint8_t message){
 	GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_3,GPIO_PIN_3);  //Turn on Green LED at start of SMS Sending
-	UARTFlushRx();  //Discard everitying from Rx
+	//UARTFlushRx();  //Discard everitying from Rx
 	UARTFlushTx(true);  //Discard everitying from Tx
 	
 	//AleGaa: Buffered sending method, unfortunatly does not work properly
@@ -129,7 +129,7 @@ void SendSMS(uint8_t message){
 	//SysCtlDelay(Millis2Ticks(5)); //Interrupts are NOT disabled and OS is NOT stoped during delay!
 
 	//AleGaa: Direct Sending method. Application writes directly to HW Fifo, NOT a SW buffer
-	UART2_DirectSendString("AT+CMGS=\"0744424818\"");  //set the mobile number to send the SMS
+	UART2_DirectSendString("AT+CMGS=\"0751538300\"");  //set the mobile number to send the SMS
 	UART2_DirectSendChar(CR);  //Send a carriage return
 	//Next statement introduces a delay of ~15ms
 	SysCtlDelay(Millis2Ticks(5)); //Interrupts are NOT disabled and OS is NOT stoped during delay!
@@ -163,7 +163,7 @@ void GSMprocessMessage(uint8_t msgNum) {
 	char continue_reading = 1;
 	char index = 0;
 	uint32_t time = 500000;
-	GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2,GPIO_PIN_2);  //Turn on Blue LED at start of SMS Receiving
+	//GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2,GPIO_PIN_2);  //Turn on Blue LED at start of SMS Receiving
 	
 	UARTFlushRx();  //Discard everitying from Rx
 	UARTFlushTx(true);  //Discard everitying from Tx
@@ -173,6 +173,7 @@ void GSMprocessMessage(uint8_t msgNum) {
 	// Request the message and get the lines of the response (includes envelope, nulls, SIM responses)
 	//PC_Display_Message("> Processing message :",msgNum," ");
 	UARTprintf("AT+CMGR=%u\r\n",msgNum);
+	GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2,GPIO_PIN_2);  //Turn on Blue LED at start of SMS Receiving
 	if(!first_execution) {
 		SysCtlDelay(Millis2Ticks(1));
 		lineCount = GSMgetResponse();
@@ -211,7 +212,8 @@ uint8_t GSMgetResponse(void) {
 
 	while(readResponse&&(readLine<RESONSE_MAX_LINE)) {  //TODO, do not hardcode, use macro
 		// Grab a line
-		if(UARTRxBytesAvail() > 2) UARTgets(g_cInput,sizeof(g_cInput));  //TODO test smaller FIFO levels
+		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_2,GPIO_PIN_2);  //Turn off
+		/*if(UARTRxBytesAvail() > 1)*/ UARTgets(g_cInput,sizeof(g_cInput));  //TODO test smaller FIFO levels
 		// Stop after: \n, \r, ESC, LF, CR, 
 		#if SHOW_READING_INFO
 		PC_Display_Message(">>> Line nr: ", readLine, g_cInput);

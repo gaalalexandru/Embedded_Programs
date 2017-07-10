@@ -30,13 +30,16 @@ void Switch1(void){
 	GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3,toggle);
 	SMS ^= 1;
 	*/
+	PC_Display_Message("SW1: Send scenario",0," -> ");
 	SendSMS(0);
 }
 
 void Switch2(void){
 	//uint8_t *GSMcommand;
 	//GSMprocessMessage(SMS);
-	SendSMS(1);
+	//SendSMS(1);
+	PC_Display_Message("SW2: Receive scenario",0," -> ");
+	GSMprocessMessage(SMS);
 }
 
 void Init_PortF_Input(void){
@@ -92,7 +95,7 @@ int main(void){
 		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1,GPIO_PIN_1);  //Turn on RED status LED
 		delay(500000);  //Wait just a bit
 		GPIOPinWrite(GPIO_PORTF_BASE,GPIO_PIN_1,0);  //Turn off RED status LED
-		GSMprocessMessage(SMS);
+		//GSMprocessMessage(SMS);
 	}
 }
 
