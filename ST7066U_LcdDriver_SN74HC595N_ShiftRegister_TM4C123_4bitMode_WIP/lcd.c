@@ -4,11 +4,10 @@
 #include "SysTick.h"
 #include "ssi_handler_tw.h"
 
-#define RS	(GPIO_PIN_6)  // 1 for data, 0 for control/status
+/*
 #define E		(GPIO_PIN_7)  // enable
-
 #define RCLK	(GPIO_PIN_2)  //pin for latch shift rg (rclk)
-#define OE 		(GPIO_PIN_3)  //pint for enable shift rg (oe)
+*/
 
 #define BusFreq 80            // assuming a 80 MHz bus clock
 #define T6us 6*BusFreq        // 6us
@@ -21,6 +20,23 @@
 #define T15ms 15000*BusFreq   // 15ms
 #define T40ms 40000*BusFreq   // 40ms
 
+#define DB4 0x01  //Output QA of shift register
+#define DB5 0x02  //Output QB of shift register
+#define DB6 0x04  //Output QC of shift register
+#define DB7 0x08  //Output QD of shift register
+
+#define RSBit	0x10	//Output QE of shift register
+#define EBit	0x20	//Output QF of shift register
+
+#define InterfaceType		(0)  //0 for 4 bit interface, 1 for 8 bit interface
+#define TwoLineDisplay	(1)  //0 for 1 line display, 1 for 2 line display
+#define CharacterSize		(0)  //0 for 5x8 character size, 1 for 5x11
+
+#define DisplayOn (1)
+#define CursorOn (1)
+#define CursorBlink	(0)
+#define ShiftDirection (1)  //0 if cursor shifts left, 1 if right
+#define DisplayShift (0)  //0 if shift cursor, 1 if shift display
 /*
   size is 1*16
   if do not need to read busy, then you can tie R/W=ground
@@ -42,114 +58,61 @@
 addr  00 01 02 03 04 05 ... 0F
 */
 void static SendSerialData(uint8_t data) {
+	SetGPIOPin(F,GPIO_PIN_1); //latch rclk
 	SSI0_DataOut(data);
-	SetGPIOPin(F,GPIO_PIN_2); //latch rclk
-  SysTick_Wait(T10us);   // wait 6us
-	ClearGPIOPin(F,GPIO_PIN_2); //latch rclk
+	SysTick_Wait(T6us);   // wait 6us
+	ClearGPIOPin(F,GPIO_PIN_1); //latch rclk
+	SysTick_Wait(T40us);
 }
 
-void static OutCmd(unsigned char command){
-int i = 0;
-int value1 = 0;
-int control = 0; // stores DI and RW
+void SendCmd(uint8_t command){
+	uint8_t serialData = (command & 0x0F);  //Make sure we have data only on lower nimble
 
-	ClearGPIOPin(F,GPIO_PIN_2); //latch rclk
+	//SendSerialData(serialData);
 	
-  control = command >> 8; // get the control signals DI and RW
-  control <<= 5; // shift the control signals to the left
-  value1 = command;
-  value1 >>= 4; //send the first 4 databits (from 8) 
-  value1 |= control; // set the control values
-  value1 &= 239; // set Enable LOW
-  SendSerialData(value1);
+	//Check if this can se sent in previous message
+	//Or check if whole command has to be sent again
+	serialData &= ~(EBit|RSBit);  //Clear E and RS bits
+	SendSerialData(serialData);
 	
-  value1 |= 16; // Set Enable HIGH
-  SendSerialData(value1);
-  value1 &= 239; // set Enable LOW
-  SendSerialData(value1);
-
-  delay(1);
-
-  command &= 15; // set HByte to zero 
-  command |= control; // set the control values
-  command &= 239; // set Enable LOW
-  SendSerialData(command);
-  command |= 16; // Set Enable HIGH
-  SendSerialData(command);
-  command &= 239; // set Enable LOW
-  SendSerialData(command);
+	serialData |= (EBit);  //Set E Bit
+	SendSerialData(serialData);
+	
+	serialData &= ~(EBit|RSBit);  //Clear E and RS bits
+	SendSerialData(serialData);
 }
 
 void LCD_Init(void){
-	SetGPIOOutput(A, RS|E);  //Set command lines
-	//SetGPIOOutput(B, (uint32_t)0xFF);  //Set data lines PB0 - PB7
+	uint8_t initData = 0;
 	SysTick_Init();
-	
-	SetGPIOOutput(F,RCLK); 
-	//SetGPIOOutput(F,OE); 
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
-	
-  SysTick_Wait(T40ms);	// Wait 40 ms after power is applied
+	SetGPIOOutput(F, GPIO_PIN_1);  //Set command lines
+	//GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
 	SysTick_Wait(T40ms);	// Wait 40 ms after power is applied
-  OutCmd(0x38);					// Function set: 8-bit / 2-line / 5x8 character resolution */
 	
+	/*Init Step 1*/
+	SendCmd(DB4|DB5);
 	SysTick_Wait(T40us);	// must wait 37us, busy flag not available
-  OutCmd(0x38);					// Function set: 8-bit / 2-line / 5x8 character resolution */
 	
+	/*Init Step 2 - Display & interface config*/
+	SendCmd(DB5 | (DB4 &&(InterfaceType)));
+	SendCmd((DB7 &&(TwoLineDisplay)) | (DB6 &&(CharacterSize)));	
 	SysTick_Wait(T40us);	// must wait 37us, busy flag not available
-	OutCmd(0x0C);					// Display ON; Cursor Off; Blink Off
-	
-	SysTick_Wait(T40us);	// must wait 37us, busy flag not available
-	OutCmd(0x01);					// Display Clear
-	
+
+	/*Init Step 3 - Display & cursor config*/
+	SendCmd(0);	//everything 0
+	SendCmd(DB7 | (DB6 && DisplayOn) | (DB5 && CursorOn) | (DB4 && CursorBlink));
+	SysTick_Wait(T40us);	// must wait 37us, busy flag not available	
+
+	/*Init Step 4 - Display Clear*/
+	SendCmd(0);	//everything 0
+	SendCmd(DB4);
 	SysTick_Wait(T1600us);// must wait 1.52 ms, busy flag not available
-	OutCmd(0x06);					// Entry mode set
 	
+	/*Init Step 5 - Set entry mode*/
+	SendCmd(0);	//everything 0
+	SendCmd(DB6 | (DB5 && ShiftDirection) | (DB4 && DisplayShift));
+	SysTick_Wait(T40us);	// must wait 37us, busy flag not available	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	 delay(100);
-  // initialize LCD after a short pause
-  // needed by the LCD's controller
-
-  /////////// 4 pin initialization
-  OutCmd(0x28); // function set:
-  // 4 pin initialization
-  delay(64);
-  OutCmd(0x28); // function set:
-  // 4 pin initialization
-  delay(50);
-  OutCmd(0x28); // function set:
-  // 4 pin initialization
-  delay(50);
-  OutCmd(0x28); // function set:
-  // 4 pin initialization
-  delay(50);
-  LcdCommandWrite(0x2C); // function set:
-  // 4-bit interface, 1 display lines, 5x7 font
-  /////////// end of 4 pin initialization 
-
-  delay(20);
-  LcdCommandWrite(0x06); // entry mode set:
-  // increment automatically, no display shift
-  delay(20);
-  LcdCommandWrite(0x0E); // display control:
-  // turn display on, cursor on, no blinking
-  delay(20);
-  // clear display, set cursor position to zero
-  LcdCommandWrite(0x01); 
-  delay(100);
-
-  LcdCommandWrite(0x80); // display control:
-  delay(20);
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
 // Output a character to the LCD
@@ -157,54 +120,31 @@ void LCD_Init(void){
 // Outputs: none
 void LCD_OutChar(char letter){
 	static uint8_t address = 0x00;
-	//GPIOPinWrite(GPIO_PORTB_BASE,0xFF,letter);
-	SendSerialData(letter);
+	uint8_t lsNimble = (letter & 0x0F);  //Least segnificant nimble (bit 3 - 0)
+	uint8_t msNimble = (letter >> 4);  //Most segnificant nimble (bit 7 - 4)
 	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,RS);
-  SysTick_Wait(T40us);   // wait 6us
+	SendSerialData(RSBit | msNimble);
+	SendSerialData(RSBit | msNimble | EBit);
+	SendSerialData(RSBit | msNimble);
 	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,E|RS);
-  SysTick_Wait(T40us);   // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,RS);
-  SysTick_Wait(T40us);  // wait 40us
-	
-	  int i = 0;
-  int value1 = 0;
-  ClearGPIOPin(F,GPIO_PIN_2); //latch rclk
-  value1 =letter;
-  value1 >>= 4; //send the first 4 databits (from 8) 
-  value1 |= 64; // set DI HIGH
-  value1 &= 223; // set RW LOW
-  value1 &= 239; // set Enable LOW
-  SendSerialData(value1);
-  value1 |= 16; // Set Enable HIGH
-  SendSerialData(value1);
-  value1 &= 239; // set Enable LOW
-  SendSerialData(value1);
-
-  delay(1);
-
-  letter &= 15; // set HByte to zero 
-  letter |= 64; // set DI HIGH
-  letter &= 223; // set RW LOW
-  letter &= 239; // set Enable LOW
-  SendSerialData(letter);
-  letter |= 16; // Set Enable HIGH
-  SendSerialData(letter);
-  letter &= 239; // set Enable LOW
-  SendSerialData(letter);
+	SendSerialData(RSBit | lsNimble);
+	SendSerialData(RSBit | lsNimble | EBit);
+	SendSerialData(RSBit | lsNimble);
 	
 	if((address < 0x0F)||((address >= 0x40)&&(address < 0x4F)))  {
 			 address ++;
-		 }
+	}
 	else if (address == 0x0F) {
 		address = 0x40;
-		OutCmd(0x80|address);  //go to 2nd line
+		lsNimble = (address & 0x0F);
+		msNimble = (address >> 4);
+		SendCmd(DB7 | msNimble);  //go to 2nd line
+		SendCmd(lsNimble);  //go to 2nd line
 	}
 	else if (address == 0x4F) {
 		address = 0x00;
-		OutCmd(0x02);  //return home
+		SendCmd(0);
+		SendCmd(DB5);  //return home
 	}
 }
 
@@ -212,8 +152,60 @@ void LCD_OutChar(char letter){
 // Inputs: none
 // Outputs: none
 void LCD_Clear(void){
-  OutCmd(0x01);          // Clear Display
-  SysTick_Wait(T1600us); // wait 1.6ms
-  OutCmd(0x02);          // Cursor to home
-  SysTick_Wait(T1600us); // wait 1.6ms
+	SendCmd(0);
+	SendCmd(DB4);  // Clear Display
+	SysTick_Wait(T1600us); // wait 1.6ms
+
+	SendCmd(0);
+	SendCmd(DB5);  //return home
+	SysTick_Wait(T1600us); // wait 1.6ms
 }
+
+//------------LCD_OutString------------
+// Output String (NULL termination)
+// Input: pointer to a NULL-terminated string to be transferred
+// Output: none
+void LCD_OutString(char *pt){
+  while(*pt){
+    LCD_OutChar(*pt);
+    pt++;
+  }
+}
+
+//-----------------------LCD_OutUDec-----------------------
+// Output a 32-bit number in unsigned decimal format
+// Input: 32-bit number to be transferred
+// Output: none
+// Variable format 1-10 digits with no space before or after
+void LCD_OutUDec(uint32_t n){
+// This function uses recursion to convert decimal number
+//   of unspecified length as an ASCII string
+  if(n >= 10){
+    LCD_OutUDec(n/10);
+    n = n%10;
+  }
+  LCD_OutChar(n+'0'); /* n is between 0 and 9 */
+}
+
+//--------------------------LCD_OutUHex----------------------------
+// Output a 32-bit number in unsigned hexadecimal format
+// Input: 32-bit number to be transferred
+// Output: none
+// Variable format 1 to 8 digits with no space before or after
+void LCD_OutUHex(uint32_t number){
+// This function uses recursion to convert the number of
+//   unspecified length as an ASCII string
+  if(number >= 0x10){
+    LCD_OutUHex(number/0x10);
+    LCD_OutUHex(number%0x10);
+  }
+  else{
+    if(number < 0xA){
+      LCD_OutChar(number+'0');
+     }
+    else{
+      LCD_OutChar((number-0x0A)+'A');
+    }
+  }
+}
+//EOF

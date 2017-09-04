@@ -66,7 +66,7 @@ int main(void)
 	
 	n = 0;
 	LCD_Clear();
-	//LCD_OutString(" Test LCD ");
+	LCD_OutString(" Test LCD ");
 	//OutCmd(0xC0);
 	//LCD_OutString(" Test LCD ");
 	//SysTick_Wait10ms(100);

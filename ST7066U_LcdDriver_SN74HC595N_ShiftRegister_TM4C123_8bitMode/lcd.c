@@ -41,10 +41,10 @@
 addr  00 01 02 03 04 05 ... 0F
 */
 void static SendSerialData(uint8_t data) {
-	SetGPIOPin(F,GPIO_PIN_2); //latch rclk
+	SetGPIOPin(F,RCLK); //latch rclk
 	SSI0_DataOut(data);
   SysTick_Wait(T6us);   // wait 6us
-	ClearGPIOPin(F,GPIO_PIN_2); //latch rclk
+	ClearGPIOPin(F,RCLK); //latch rclk
 }
 
 void OutCmd(unsigned char command){
@@ -64,10 +64,11 @@ void OutCmd(unsigned char command){
 
 void LCD_Init(void){
 	SetGPIOOutput(A, RS|E);  //Set command lines
+	SetGPIOOutput(F,RCLK);
 	//SetGPIOOutput(B, (uint32_t)0xFF);  //Set data lines PB0 - PB7
-	SysTick_Init();
 	
-	SetGPIOOutput(F,RCLK); 
+	SysTick_Init();
+	 
 	//SetGPIOOutput(F,OE); 
 	
 	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);

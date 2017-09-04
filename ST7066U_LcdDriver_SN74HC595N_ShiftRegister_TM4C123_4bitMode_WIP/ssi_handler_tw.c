@@ -11,7 +11,7 @@
 
 #define DIVISOR_rgb 12
 //#define FREQ_SHIFT_RG 25000000 
-#define FREQ_SHIFT_RG 10000000 
+#define FREQ_SHIFT_RG 5000000 //10000000 
 
 void SSI0_DataOut(uint8_t data){ //for shift register
 	SSIDataPut(SSI0_BASE,data); //Puts a data element into the SSI transmit FIFO.

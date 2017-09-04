@@ -1247,12 +1247,12 @@ ARM Macro Assembler    Page 20
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\startup_tm4c123.d -o.\objects\startup_tm4c123.o -IC:\
-Users\alexandru.gaal\Documents\GitHub\Embedded_Programs\ST7066U_LcdDriver_SN74H
-C595N_ShiftRegister_TM4C123_TivaWare\RTE\_Target_1 -IC:\Keil_v5\ARM\PACK\ARM\CM
-SIS\5.0.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Includ
-e\TM4C123 --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 522" 
---predefine="_RTE_ SETA 1" --predefine="TM4C123GH6PM SETA 1" --list=.\listings\
-startup_tm4c123.lst RTE\Device\TM4C123GH6PM\startup_TM4C123.s
+Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_S
+hiftRegister_TM4C123_8bitMode\RTE\_Target_1 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0
+.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C1
+23 --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 522" --prede
+fine="_RTE_ SETA 1" --predefine="TM4C123GH6PM SETA 1" --list=.\listings\startup
+_tm4c123.lst RTE\Device\TM4C123GH6PM\startup_TM4C123.s
 
 
 

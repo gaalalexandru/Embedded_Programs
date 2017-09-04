@@ -4,7 +4,6 @@
 ".\objects\display.o"
 ".\objects\ssi_handler_tw.o"
 ".\objects\lcd.o"
-".\objects\pll.o"
 ".\objects\systick.o"
 "..\..\TivaWare_C_Series-2.1.1.71\driverlib\rvmdk\driverlib.lib"
 "C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Lib\ARM\arm_cortexM4lf_math.lib"
