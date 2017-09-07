@@ -11,6 +11,8 @@
 #define OE 		(GPIO_PIN_3)  //pint for enable shift rg (oe)
 
 #define BusFreq 80            // assuming a 80 MHz bus clock
+#define T02us (BusFreq/5)        // 6us
+#define T1us 1*BusFreq        // 6us
 #define T6us 6*BusFreq        // 6us
 #define T37us 37*BusFreq      // 40us
 #define T40us 40*BusFreq      // 40us
@@ -41,37 +43,46 @@
 addr  00 01 02 03 04 05 ... 0F
 */
 void static SendSerialData(uint8_t data) {
-	SetGPIOPin(F,RCLK); //latch rclk
+	ClearGPIOPin(F,RCLK); //latch rclk
 	SSI0_DataOut(data);
-  SysTick_Wait(T6us);   // wait 6us
+  SysTick_Wait(T1us);   // wait 1us - tw = 20 ns
+	SetGPIOPin(F,RCLK); //latch rclk
+  SysTick_Wait(T1us);   // wait 1us - tw = 20 ns
 	ClearGPIOPin(F,RCLK); //latch rclk
 }
 
+void OutData(unsigned char data){
+	SetGPIOPin(A,RS);
+	//No wait is required - tAS
+	SetGPIOPin(A,E);
+	SendSerialData(data);
+	SysTick_Wait(T02us);  // wait 0.2us - tPW min 140ns if Vcc = 5V
+	ClearGPIOPin(A,E);
+  
+	SysTick_Wait(T1us);  // wait 1us - tAH min 10 ns if Vcc = 5v
+	ClearGPIOPin(A,RS);
+}
+
 void OutCmd(unsigned char command){
-	//GPIOPinWrite(GPIO_PORTB_BASE,0xFF,command);
-	
+	ClearGPIOPin(A,RS);
+	//No wait is required - tAS
+	SetGPIOPin(A,E);
 	SendSerialData(command);
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
-  SysTick_Wait(T40us);   // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,E);
-  SysTick_Wait(T40us);  // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
-  SysTick_Wait(T40us);  // wait 40us
+	SysTick_Wait(T02us);  // wait 0.2us - tPW min 140ns if Vcc = 5V
+	ClearGPIOPin(A,E);
+  
+	SysTick_Wait(T1us);  // wait 1us - tAH min 10 ns if Vcc = 5v
 }
 
 void LCD_Init(void){
 	SetGPIOOutput(A, RS|E);  //Set command lines
 	SetGPIOOutput(F,RCLK);
 	//SetGPIOOutput(B, (uint32_t)0xFF);  //Set data lines PB0 - PB7
-	
+		
 	SysTick_Init();
-	 
-	//SetGPIOOutput(F,OE); 
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
+
+	ClearGPIOPin(A,RS);
+	ClearGPIOPin(A,E);	
 	
   SysTick_Wait(T40ms);	// Wait 40 ms after power is applied
 	SysTick_Wait(T40ms);	// Wait 40 ms after power is applied
@@ -95,17 +106,9 @@ void LCD_Init(void){
 // Outputs: none
 void LCD_OutChar(char letter){
 	static uint8_t address = 0x00;
-	//GPIOPinWrite(GPIO_PORTB_BASE,0xFF,letter);
-	SendSerialData(letter);
 	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,RS);
-  SysTick_Wait(T40us);   // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,E|RS);
-  SysTick_Wait(T40us);   // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,RS);
-  SysTick_Wait(T40us);  // wait 40us
+	OutData(letter);
+
 	if((address < 0x0F)||((address >= 0x40)&&(address < 0x4F)))  {
 			 address ++;
 		 }
