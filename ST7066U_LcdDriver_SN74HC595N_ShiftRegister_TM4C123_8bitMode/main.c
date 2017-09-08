@@ -60,13 +60,20 @@ int main(void)
 	Display_NewLine();
 	
 	SSI0_Init();  //Init SPI to shift register, needed to control LCD
+
 	LCD_Init();  //Init LCD
 	Display_String("LCD Initialized "); 
 	Display_NewLine();
 	
 	n = 0;
-	LCD_Clear();
-	//LCD_OutString(" Test LCD ");
+	//LCD_Clear();
+	//LCD_OutString("1234567890");
+	
+	/*for(n = 48; n < 58; n++) {
+		LCD_OutChar(n);
+		SysTick_Wait10ms(40);
+	}*/
+
 	//OutCmd(0xC0);
 	//LCD_OutString(" Test LCD ");
 	//SysTick_Wait10ms(100);
@@ -78,11 +85,13 @@ int main(void)
 		//LCD_Clear();
 		//LCD_OutUDec(n);
 		//SysTick_Wait10ms(50);
-		//LCD_OutChar(32);
-		LCD_OutUHex(n);
-		SysTick_Wait10ms(40);
+		for(n = 48; n < 58; n++) {
+			LCD_OutChar(n);
+			SysTick_Wait10ms(40);
+		}
+		//LCD_OutUHex(n);
 		//n++;
-		n = (n + 1) % 16;
+		//n = (n + 1) % 127;
 
 	}
 	return 0;

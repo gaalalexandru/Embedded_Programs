@@ -9,3 +9,4 @@
 .\objects\lcd.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h
 .\objects\lcd.o: SysTick.h
 .\objects\lcd.o: ssi_handler_tw.h
+.\objects\lcd.o: ..\..\TivaWare_C_Series-2.1.1.71\driverlib/ssi.h

@@ -1,7 +1,7 @@
 #include "stdbool.h"
 #include "stdint.h"
 #include "ssi_handler_tw.h"
-
+#include "display.h"
 /*-------------------Driver Includes-----------------*/
 #include "driverlib/gpio.h"
 #include "driverlib/pin_map.h"
@@ -11,10 +11,13 @@
 
 #define DIVISOR_rgb 12
 //#define FREQ_SHIFT_RG 25000000 
-#define FREQ_SHIFT_RG 16000000   //16Mhz
+#define FREQ_SHIFT_RG 1000000   //1Mbps
 
 void SSI0_DataOut(uint8_t data){ //for shift register
 	SSIDataPut(SSI0_BASE,data); //Puts a data element into the SSI transmit FIFO.
+	//Display_NewLine();	
+	//Display_Decimal(data); 
+	//Display_NewLine();	
 }
 void SSI1_DataOut(uint8_t data){ //for rgb
 	SSIDataPut(SSI1_BASE,data); //Puts a data element into the SSI transmit FIFO.
@@ -24,7 +27,10 @@ void SSI0_Init(void){//for shift register
 	uint8_t delay = 0;
 	
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_SSI0);		//SSI 0 enable 
+	for(delay=0; delay<100; delay=delay+1);// delay
+	
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);	//Port A enable
+	for(delay=0; delay<100; delay=delay+1);// delay
 	
 	SSIDisable(SSI0_BASE);												 //Disable SSI0
 
