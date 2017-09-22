@@ -3,14 +3,18 @@
 #include "gpio_handler.h"
 #include "SysTick.h"
 #include "ssi_handler_tw.h"
+#include "driverlib/ssi.h"
 
 #define RS	(GPIO_PIN_6)  // 1 for data, 0 for control/status
 #define E		(GPIO_PIN_7)  // enable
 
 #define RCLK	(GPIO_PIN_2)  //pin for latch shift rg (rclk)
 #define OE 		(GPIO_PIN_3)  //pint for enable shift rg (oe)
+#define CLEAR	(GPIO_PIN_3) 
 
 #define BusFreq 80            // assuming a 80 MHz bus clock
+#define T02us (BusFreq/5)        // 6us
+#define T1us 1*BusFreq        // 6us
 #define T6us 6*BusFreq        // 6us
 #define T37us 37*BusFreq      // 40us
 #define T40us 40*BusFreq      // 40us
@@ -19,6 +23,8 @@
 #define T5ms 5000*BusFreq     // 5ms
 #define T15ms 15000*BusFreq   // 15ms
 #define T40ms 40000*BusFreq   // 40ms
+
+#define SerialInterface	(0)
 
 /*
   size is 1*16
@@ -39,54 +45,104 @@
   PB7    = pin 14   DB7
 16 characters are configured as 1 row of 16
 addr  00 01 02 03 04 05 ... 0F
+
+Contrast addjustment: V0 = 0.455 V
 */
+
 void static SendSerialData(uint8_t data) {
-	SSI0_DataOut(data);
-	SetGPIOPin(F,GPIO_PIN_2); //latch rclk
-	SysTick_Wait(T40us);   // wait 6us
-	ClearGPIOPin(F,GPIO_PIN_2); //latch rclk
+	SSIDataPut(SSI0_BASE,data);
+  SysTick_Wait(T40us);
+	
+	SetGPIOPin(F,RCLK); //latch rclk
+  SysTick_Wait(T1us);   // wait 1us - tw = 20 ns
+	ClearGPIOPin(F,RCLK); //latch rclk
+
+}
+
+void OutData(unsigned char data){
+#if SerialInterface
+	SendSerialData(data);
+#else
+	GPIOPinWrite(GPIO_PORTB_BASE,0xFF,data);
+#endif
+
+	GPIOPinWrite(GPIO_PORTA_BASE,RS,RS);
+	SysTick_Wait(T1us);	//No wait is required - tAS
+
+	GPIOPinWrite(GPIO_PORTA_BASE,E,E);
+	SysTick_Wait(T40us);  // wait 0.2us - tPW min 140ns if Vcc = 5V
+
+	GPIOPinWrite(GPIO_PORTA_BASE,E,0);
+	SysTick_Wait(T1us);  // wait 1us - tAH min 10 ns if Vcc = 5v
+
+	GPIOPinWrite(GPIO_PORTA_BASE,RS,0);
+#if SerialInterface
+	SendSerialData(0);
+#else
+	//GPIOPinWrite(GPIO_PORTB_BASE,0xFF,0);
+#endif
 }
 
 void OutCmd(unsigned char command){
-	//GPIOPinWrite(GPIO_PORTB_BASE,0xFF,command);
-	
+	GPIOPinWrite(GPIO_PORTA_BASE,RS,0);
+	//No wait is required - tAS
+
+#if SerialInterface
 	SendSerialData(command);
+#else
+	GPIOPinWrite(GPIO_PORTB_BASE,0xFF,command);
+#endif
 	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
-  SysTick_Wait(T40us);   // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,E);
-  SysTick_Wait(T40us);  // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
-  SysTick_Wait(T40us);  // wait 40us
+	GPIOPinWrite(GPIO_PORTA_BASE,E,E);
+	SysTick_Wait(T40us);  // wait 0.2us - tPW min 140ns if Vcc = 5V
+
+	GPIOPinWrite(GPIO_PORTA_BASE,E,0);
+  SysTick_Wait(T1us);  // wait 1us - tAH min 10 ns if Vcc = 5v
+
+#if SerialInterface
+	SendSerialData(0);
+#else
+	//GPIOPinWrite(GPIO_PORTB_BASE,0xFF,0);
+#endif
 }
 
 void LCD_Init(void){
-	SetGPIOOutput(A, RS|E);  //Set command lines
-	//SetGPIOOutput(B, (uint32_t)0xFF);  //Set data lines PB0 - PB7
+	SetGPIOOutput(A, (uint32_t)RS|E);  //Set command lines
+	
+#if SerialInterface
+	SetGPIOOutput(F, (uint32_t)RCLK);
+	SSI0_Init();  //Init SPI to shift register, needed to control LCD
+#else
+	SetGPIOOutput(B, (uint32_t)0xFF);  //Set data lines PB0 - PB7
+#endif
+
 	SysTick_Init();
-	
-	SetGPIOOutput(F,RCLK); 
-	//SetGPIOOutput(F,OE); 
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,0);
-	
+
+	GPIOPinWrite(GPIO_PORTA_BASE,RS,0x00);
+	GPIOPinWrite(GPIO_PORTA_BASE,E,0x00);
+	GPIOPinWrite(GPIO_PORTB_BASE,0xFF,0x00);
+
+#if SerialInterface
+	SendSerialData(0);
+#endif
+
   SysTick_Wait(T40ms);	// Wait 40 ms after power is applied
 	SysTick_Wait(T40ms);	// Wait 40 ms after power is applied
-  OutCmd(0x38);					// Function set: 8-bit / 2-line / 5x8 character resolution */
-	
+
+	OutCmd(0x38);					// Function set: 8-bit / 2-line / 5x8 character resolution */
 	SysTick_Wait(T40us);	// must wait 37us, busy flag not available
-  OutCmd(0x38);					// Function set: 8-bit / 2-line / 5x8 character resolution */
-	
-	SysTick_Wait(T40us);	// must wait 37us, busy flag not available
+
 	OutCmd(0x0C);					// Display ON; Cursor Off; Blink Off
-	
 	SysTick_Wait(T40us);	// must wait 37us, busy flag not available
+
 	OutCmd(0x01);					// Display Clear
-	
 	SysTick_Wait(T1600us);// must wait 1.52 ms, busy flag not available
+
 	OutCmd(0x06);					// Entry mode set
+	SysTick_Wait(T40us);
+	
+	GPIOPinWrite(GPIO_PORTB_BASE,0xFF,0x00);
+	SysTick_Wait(T40us);
 }
 
 // Output a character to the LCD
@@ -94,17 +150,9 @@ void LCD_Init(void){
 // Outputs: none
 void LCD_OutChar(char letter){
 	static uint8_t address = 0x00;
-	//GPIOPinWrite(GPIO_PORTB_BASE,0xFF,letter);
-	SendSerialData(letter);
 	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,RS);
-  SysTick_Wait(T40us);   // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,E|RS);
-  SysTick_Wait(T40us);   // wait 6us
-	
-	GPIOPinWrite(GPIO_PORTA_BASE,E|RS,RS);
-  SysTick_Wait(T40us);  // wait 40us
+	OutData(letter);
+/*
 	if((address < 0x0F)||((address >= 0x40)&&(address < 0x4F)))  {
 			 address ++;
 		 }
@@ -116,6 +164,7 @@ void LCD_OutChar(char letter){
 		address = 0x00;
 		OutCmd(0x02);  //return home
 	}
+*/
 }
 
 // Clear the LCD
