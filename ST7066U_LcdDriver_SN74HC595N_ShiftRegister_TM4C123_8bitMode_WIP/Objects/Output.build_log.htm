@@ -21,19 +21,25 @@ Target DLL:      lmidk-agdi.dll V???
 Dialog DLL:      TCM.DLL V1.21.0.0
  
 <h2>Project:</h2>
-C:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_8bitMode\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_TivaWare.uvprojx
+C:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_8bitMode_WIP\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_TivaWare.uvprojx
 Project File Date:  09/04/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling SysTick.c...
+compiling ssi_handler_tw.c...
+compiling display.c...
+compiling gpio_handler.c...
 compiling lcd.c...
-lcd.c(150): warning:  #177-D: variable "address"  was declared but never referenced
+lcd.c(152): warning:  #177-D: variable "address"  was declared but never referenced
   	static uint8_t address = 0x00;
-lcd.c(50): warning:  #177-D: function "SendSerialData"  was declared but never referenced
+lcd.c(52): warning:  #177-D: function "SendSerialData"  was declared but never referenced
   void static SendSerialData(uint8_t data) {
 lcd.c: 2 warnings, 0 errors
+assembling startup_TM4C123.s...
 compiling main.c...
+compiling system_TM4C123.c...
 linking...
 Program Size: Code=3092 RO-data=1632 RW-data=4 ZI-data=612  
 ".\Objects\Output.axf" - 0 Error(s), 2 Warning(s).
@@ -54,7 +60,7 @@ Package Vendor: Keil
    * Component: Startup Version: 1.0.1
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_8bitMode\RTE\_Target_1
+  C:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_8bitMode_WIP\RTE\_Target_1
   C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include
   C:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123
 
@@ -70,7 +76,7 @@ Package Vendor: Keil
       Include file:  Device\Include\TM4C123\TM4C123.h
       Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

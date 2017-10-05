@@ -22,12 +22,18 @@ Dialog DLL:      TCM.DLL V1.21.0.0
  
 <h2>Project:</h2>
 C:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_4bitMode_WIP\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_TivaWare.uvprojx
-Project File Date:  05/24/2017
+Project File Date:  08/31/2017
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-".\Objects\Output.axf" - 0 Error(s), 0 Warning(s).
+compiling lcd.c...
+lcd.c(86): warning:  #177-D: variable "initData"  was declared but never referenced
+  	uint8_t initData = 0;
+lcd.c: 1 warning, 0 errors
+linking...
+Program Size: Code=3512 RO-data=1632 RW-data=8 ZI-data=608  
+".\Objects\Output.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +67,7 @@ Package Vendor: Keil
       Include file:  Device\Include\TM4C123\TM4C123.h
       Source file:   Device\Source\ARM\startup_TM4C123.s
       Source file:   Device\Source\system_TM4C123.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

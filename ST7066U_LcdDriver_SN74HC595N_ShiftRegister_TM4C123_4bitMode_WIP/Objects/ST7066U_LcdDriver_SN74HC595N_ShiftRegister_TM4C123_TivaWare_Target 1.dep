@@ -37,7 +37,7 @@ I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/uart.h)(0x58F06950)
 I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x566AABD8)
 I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/gpio.h)(0x5648E778)
 I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x5710DA4C)
-F (.\ssi_handler_tw.c)(0x59A833E1)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\TivaWare_C_Series-2.1.1.71 -I ..\..\TivaWare_C_Series-2.1.1.71-IC:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_4bitMode_WIP\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="522" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\ssi_handler_tw.o --omf_browse .\objects\ssi_handler_tw.crf --depend .\objects\ssi_handler_tw.d)
+F (.\ssi_handler_tw.c)(0x59AD1219)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\TivaWare_C_Series-2.1.1.71 -I ..\..\TivaWare_C_Series-2.1.1.71-IC:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_4bitMode_WIP\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="522" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\ssi_handler_tw.o --omf_browse .\objects\ssi_handler_tw.crf --depend .\objects\ssi_handler_tw.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F64D08)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
 I (ssi_handler_tw.h)(0x59251638)
@@ -46,7 +46,7 @@ I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/pin_map.h)(0x566AABD8)
 I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/ssi.h)(0x5648E778)
 I (..\..\TivaWare_C_Series-2.1.1.71\driverlib/sysctl.h)(0x5648E778)
 I (..\..\TivaWare_C_Series-2.1.1.71\inc/hw_memmap.h)(0x5710DA4C)
-F (.\lcd.c)(0x59A82E3C)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\TivaWare_C_Series-2.1.1.71 -I ..\..\TivaWare_C_Series-2.1.1.71-IC:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_4bitMode_WIP\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="522" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
+F (.\lcd.c)(0x59D350FA)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\TivaWare_C_Series-2.1.1.71 -I ..\..\TivaWare_C_Series-2.1.1.71-IC:\Users\alexandru.gaal\Documents\Embedded_Programs\ST7066U_LcdDriver_SN74HC595N_ShiftRegister_TM4C123_4bitMode_WIP\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="522" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RA1-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
 I (lcd.h)(0x59251638)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F64D08)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x57F64D08)

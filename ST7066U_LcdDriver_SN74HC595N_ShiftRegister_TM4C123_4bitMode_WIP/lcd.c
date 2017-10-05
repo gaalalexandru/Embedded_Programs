@@ -28,7 +28,7 @@
 #define RSBit	0x10	//Output QE of shift register
 #define EBit	0x20	//Output QF of shift register
 
-#define InterfaceType		(0)  //0 for 4 bit interface, 1 for 8 bit interface
+#define InterfaceType		(1)  //0 for 4 bit interface, 1 for 8 bit interface
 #define TwoLineDisplay	(1)  //0 for 1 line display, 1 for 2 line display
 #define CharacterSize		(0)  //0 for 5x8 character size, 1 for 5x11
 
